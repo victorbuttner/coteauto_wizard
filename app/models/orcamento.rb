@@ -54,7 +54,7 @@ class Orcamento
       p "valor inicial #{seguro.valor_incial}"
       p "valor inicial #{seguro.valor_final}"
       p "valor do seguro #{seguro.preco}"
-      if (self.seguro_preco.nil? && self.vei_preco.between?(seguro.valor_incial,seguro.valor_final) || (self.seguro_preco != seguro.preco && self.vei_preco.between?(seguro.valor_incial,seguro.valor_final) ) )
+      if (self.seguro_preco.nil? && self.vei_preco.between?(seguro.valor_incial,seguro.valor_final) && self.vei_tipo == seguro.tipo_veiculo || (self.seguro_preco != seguro.preco && self.vei_preco.between?(seguro.valor_incial,seguro.valor_final) && self.vei_tipo == seguro.tipo_veiculo) )
           p "deu match"
           p "preco do carro #{self.vei_preco}"
           p "valor inicial #{seguro.valor_incial}"
