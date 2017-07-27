@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Orcamentos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cli name</th>
+      <th>Cli email</th>
+      <th>Cli tel</th>
+      <th>Cli cpf</th>
+      <th>Cli pais</th>
+      <th>Cli sexo</th>
+      <th>Cli cep</th>
+      <th>Cli end</th>
+      <th>Cli end number</th>
+      <th>Cli end compl</th>
+      <th>Cli end cidade</th>
+      <th>Cli end bairro</th>
+      <th>Vei tipo</th>
+      <th>Vei marca</th>
+      <th>Vei veiculo</th>
+      <th>Vei modelo ano</th>
+      <th>Vei preco</th>
+      <th>Vei tipo uso</th>
+      <th>Vei placa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orcamentos.each do |orcamento| %>
+      <tr>
+        <td><%= orcamento.cli_name %></td>
+        <td><%= orcamento.cli_email %></td>
+        <td><%= orcamento.cli_tel %></td>
+        <td><%= orcamento.cli_cpf %></td>
+        <td><%= orcamento.cli_pais %></td>
+        <td><%= orcamento.cli_sexo %></td>
+        <td><%= orcamento.cli_cep %></td>
+        <td><%= orcamento.cli_end %></td>
+        <td><%= orcamento.cli_end_number %></td>
+        <td><%= orcamento.cli_end_compl %></td>
+        <td><%= orcamento.cli_end_cidade %></td>
+        <td><%= orcamento.cli_end_bairro %></td>
+        <td><%= orcamento.vei_tipo %></td>
+        <td><%= orcamento.vei_marca %></td>
+        <td><%= orcamento.vei_veiculo %></td>
+        <td><%= orcamento.vei_modelo_ano %></td>
+        <td><%= orcamento.vei_preco %></td>
+        <td><%= orcamento.vei_tipo_uso %></td>
+        <td><%= orcamento.vei_placa %></td>
+        <td><%= link_to 'Show', orcamento %></td>
+        <td><%= link_to 'Edit', edit_orcamento_path(orcamento) %></td>
+        <td><%= link_to 'Destroy', orcamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Orcamento', new_orcamento_path %>

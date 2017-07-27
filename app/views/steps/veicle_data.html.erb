@@ -1,0 +1,29 @@
+
+<h3>Vamos agora precisar de algumas informações do seu veículo </h3>
+ 
+<%= render layout: 'form' do |f| %>
+
+  
+  <div class="field">
+    Selecione o tipo de veículo :    <%= f.select :vei_tipo, options_for_select([['Carros'],['Motos'],['Caminhões'],['Nauticas']]), {}, {required: 'true', autofocus: 'true', class: 'minimal'}   %>
+  </div>
+
+  <div class="field">
+    Eu tenho um :   <%= f.select :vei_marca, options_for_select([]) , {}, {required: 'true', autofocus: 'true', class: 'minimal '} %>
+    <%= f.select :vei_veiculo , options_for_select([['Veículo']]), {}, {required: 'true', autofocus: 'true', class: 'minimal '}%>
+  </div>
+
+  <div class="field">
+   Ano :    <%= f.select :vei_modelo_ano , options_for_select([[]]), {}, {required: 'true', autofocus: 'true', class: 'selectpicker '}%>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :vei_preco, :value => '' ,class: "form_input-text" %>
+  </div>
+
+  <div class="field">
+    e seu uso é   <%= f.select :vei_tipo_uso, options_for_select([["Selecione"],["Particular"],["Uber"],["Taxi"],["veiclega"]]), {}, {required: 'true', autofocus: 'true', class: 'minimal '} %>
+  </div>
+
+  
+<%end%>

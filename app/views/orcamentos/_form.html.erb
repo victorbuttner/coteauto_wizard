@@ -1,0 +1,34 @@
+<%= form_for(orcamento) do |f| %>
+  <% if orcamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(orcamento.errors.count, "error") %> prohibited this orcamento from being saved:</h2>
+
+      <ul>
+      <% orcamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h2> Oi, a gente quer conhecer você melhor, é rapidinho </h2>
+  <h3> menos de 1 minutinho </h3>
+
+  <div class="field">
+    Meu nome é   <%= f.text_field :cli_name , class: "form_input-text" , placeholder: "nome", required: true %>
+    </div>
+  <div class="field">
+
+    Se a Youse precisar falar comigo, pode me ligar no <%= f.telephone_field :cli_tel , class: "form_input-text", placeholder: "(XX) XXXX-XXXX" , required: true %>
+  </div>
+  <div class="field">
+
+  ou mandar um e-mail para <%= f.email_field :cli_email , class: "form_input-text" , placeholder: "nome@email.com" , required: true%>
+
+  </div>
+
+  <div class="actions ">
+    <%= f.submit 'Continuar', :class => 'btn btn-primary' %>
+  </div>
+
+<% end %>

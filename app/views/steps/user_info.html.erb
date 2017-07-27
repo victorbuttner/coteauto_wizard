@@ -1,0 +1,69 @@
+<%= form_for(orcamento), :url => wizard_path do |f| %>
+  <% if orcamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(orcamento.errors.count, "error") %> prohibited this orcamento from being saved:</h2>
+
+      <ul>
+      <% orcamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+
+
+  <div class="field">
+    <%= f.label :cli_cpf %>
+    <%= f.text_field :cli_cpf %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cli_pais %>
+    <%= f.text_field :cli_pais %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cli_trab %>
+    <%= f.text_field :cli_trab %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cli_salario %>
+    <%= f.text_field :cli_salario %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cli_sexo %>
+    <%= f.text_field :cli_sexo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cli_cep %>
+    <%= f.text_field :cli_cep %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cli_end %>
+    <%= f.text_field :cli_end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cli_end_number %>
+    <%= f.number_field :cli_end_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cli_end_compl %>
+    <%= f.text_field :cli_end_compl %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cli_end_cidade %>
+    <%= f.text_field :cli_end_cidade %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cli_end_bairro %>
+    <%= f.text_field :cli_end_bairro %>
+  </div>

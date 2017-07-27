@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Seguros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo veiculo</th>
+      <th>Valor incial</th>
+      <th>Valor final</th>
+      <th>Preco</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seguros.each do |seguro| %>
+      <tr>
+        <td><%= seguro.tipo_veiculo %></td>
+        <td><%= seguro.valor_incial %></td>
+        <td><%= seguro.valor_final %></td>
+        <td><%= seguro.preco %></td>
+        <td><%= link_to 'Show', seguro %></td>
+        <td><%= link_to 'Edit', edit_seguro_path(seguro) %></td>
+        <td><%= link_to 'Destroy', seguro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Seguro', new_seguro_path %>

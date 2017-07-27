@@ -1,0 +1,173 @@
+<div class="row" >
+	<div id="header" class="row">
+		<h2> Essa é a parte mais legal: <br>
+		bora deixar o seguro com a sua cara?</h2>
+
+		<%= render layout: 'form' do |f| %>
+
+		<h3>Seu carro está avaliado em R$ <span class ="destaque" ><%= f.object.vei_preco  %>,00 </span> </h3>
+	</div>
+
+
+	<div  class="row">
+		
+		<% if (f.object.vei_tipo == 'Carros') %>
+
+		<div role="main" class="col-md-8" > 
+			<div class="col-md-6">
+			<h4>Seu seguro já tem cobertura para:</h4>
+			<ul>
+				<li>Roubo e Furto</li>
+				<li>Colisão Parcial e Total</li>
+				<li>4 reboques de 100 km ( ida e volta )</li>
+				<li>Chaveiro</li>
+				<li>Socorro Elétrico / Mecânico</li>
+				<li>Cobertura a terceiros até 30.000,00</li>
+				<li>Seguro de vida de até R$ 2.000,00</li>
+				<li>Assistência residêncial</li>
+				<li>Incêndio, alagamento e eventos da natureza</li>
+				<li>Assistência Pet</li>
+			</ul>
+			</div>
+
+			<div class="col-md-6">	
+				<h4>Vamos Personalizar as coisas?</h4>
+
+				<div class="field">
+					Reboque: <br>
+				    300KM     <%= f.check_box :seg_car_reboque_300  , :class => 'switch' %>
+				   	500KM    <%= f.check_box :seg_car_reboque_500 %>
+				</div>
+
+				<div class="field">
+				    Seguro contra terceiros (R$ 50.000,00)    <%= f.check_box :seg_car_terceiros_50k %>
+				</div>
+
+				<div class="field">
+				    Seguro Vidros   <%= f.check_box :seg_car_vidros %>
+				</div>
+
+				<div class="field">
+				    Carros Reserva: <br>
+				    7 dias : <%= f.check_box :seg_car_reserva_7d %>
+				    14 dias : <%= f.check_box :seg_car_reserva14 %>
+
+			</div>
+		<% elsif (f.object.vei_tipo == 'Motos') %>
+
+		<div role="main" class="col-md-8" > 
+			<div class="col-md-6">
+				<h4>Seu seguro já tem cobertura para:</h4>
+				<ul>
+					<li>Colisão Parcial e Total</li>
+					<li>4 reboques de 100 km ( ida e volta )</li>
+					<li>Chaveiro</li>
+					<li>Socorro Elétrico / Mecânico</li>
+					<li>Cobertura a terceiros até 20.000,00</li>
+					<li>Seguro de vida de até R$ 2.000,00</li>
+					<li>Assistência residêncial</li>
+					<li>Incêndio, alagamento e eventos da natureza</li>
+					<li>Assistência Pet</li>
+				</ul>
+				
+			</div>
+
+			<div class="col-md-6">	
+				<h4>Vamos Personalizar as coisas?</h4>
+				<div class="field">
+					Reboque: <br>
+				    300KM     <%= f.check_box :seg_moto_reboque_300  , :class => 'switch' %>
+				   	500KM    <%= f.check_box :seg_moto_reboque_500 %>
+				</div>
+
+			</div>
+
+		</div>
+
+		<% elsif (f.object.vei_tipo == 'Caminhões') %>
+		<div role="main" class="col-md-8" > 
+			<div class="col-md-6">
+				<h4>Seu seguro já tem cobertura para:</h4>
+				<ul>
+					<li>Roubo e Furto</li>
+					<li>Colisão Parcial e Total</li>
+					<li>4 reboques de 200 km ( ida e volta )</li>
+					<li>Chaveiro</li>
+					<li>Socorro Elétrico</li>
+					<li>Seguro de vida de até R$ 2.000,00</li>
+					<li>Assistência residêncial</li>
+					<li>Incêndio, alagamento e eventos da natureza</li>
+					<li>Assistência Pet</li>
+				</ul>
+
+			</div>
+
+			<div class="col-md-6">	
+				<h4>Vamos Personalizar as coisas?</h4>
+				<div class="field">
+					Reboque: <br>
+				    300KM     <%= f.check_box :seg_cam_reboque_300  , :class => 'switch' %>
+				</div>
+
+				<div class="field">
+				    Seguro contra terceiros 
+				    (R$ 50.000,00)    <%= f.check_box :seg_car_terceiros_50k %>
+				    (R$ 100.000,00)    <%= f.check_box :seg_cam_terceiros_100k %>
+				    (R$ 200.000,00)    <%= f.check_box :seg_cam_terceiros_200k %>
+
+				</div>
+
+				<div class="field">
+				    Seguro Vidros   <%= f.check_box :seg_cam_vidros %>
+				</div>
+
+			</div>
+		</div>
+		<% elsif (f.object.vei_tipo == 'Nautica') %>
+		<div role="main" class="col-md-8" > 
+			<div class="col-md-6">
+				<h4>Seu seguro já tem cobertura para:</h4>
+				<ul>
+					<li>Incêndio</li>
+					<li>Abalroamento</li>
+					<li>Perda total</li>
+					<li>Roubo e Furto Qualificado</li>
+					<li>Assitência e Salvamento de Embarcação</li>
+					<li>Acidentes em operação de colocada e retirada da agua</li>
+					<li>Proteção para transporte terrestre</li>
+					<li>Proteção para embarcação guarda fora da marina</li>
+					<li>Fortuna do mar</li>
+					<li>Interpérie</li>
+					<li>Assistência Residencial – Chaveiro/Eletrecista/Encanador</li>
+					<li>Seguro de vida R$ 2.000,00</li>
+					<li>Assistência pet</li>
+				</ul>
+
+			</div>
+
+			<div class="col-md-6">	
+				<h4>Vamos Personalizar as coisas?</h4>
+
+			</div>
+		</div>
+
+
+		<%end%>
+
+					<%= f.text_field :seguro_preco %>
+
+
+					<%= f.text_field :seguro_preco_final %>
+
+		</div>
+
+</div>
+
+	<aside role="sidebar" class="col-md-4 bg-color sidebar">
+	    <h3>O valor do seu seguro:</h3>
+		<h4>R$ <span id="seguro_final" > <%= f.object.seguro_preco_final %> </span> /mês</h4>   
+	</aside>
+
+
+
+<% end %>

@@ -1,0 +1,22 @@
+<%= form_for @orcamento, :url => wizard_path do |f| %>
+
+  <% if @orcamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@orcamento.errors.count, "error") %> prohibited this orcamento from being saved:</h2>
+
+      <ul>
+      <% @orcamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <%= yield f %>
+
+<div class="button">
+  <%= f.submit  "Continar" , :class => 'btn btn-primary' %>
+</div>
+
+<%end%>

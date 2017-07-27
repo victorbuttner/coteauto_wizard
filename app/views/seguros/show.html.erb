@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo veiculo:</strong>
+  <%= @seguro.tipo_veiculo %>
+</p>
+
+<p>
+  <strong>Valor incial:</strong>
+  <%= @seguro.valor_incial %>
+</p>
+
+<p>
+  <strong>Valor final:</strong>
+  <%= @seguro.valor_final %>
+</p>
+
+<p>
+  <strong>Preco:</strong>
+  <%= @seguro.preco %>
+</p>
+
+<%= link_to 'Edit', edit_seguro_path(@seguro) %> |
+<%= link_to 'Back', seguros_path %>

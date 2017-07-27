@@ -1,0 +1,51 @@
+ <h3 >
+    Aeee! Estamos quase lá.
+    <br>
+    <bold>Conta aí um pouquinho mais sobre vc.</bold>
+  </h3>
+
+<%= render layout: 'form' do |f| %>
+
+  <div class="field">
+  	Meu nome completo é :    <%= f.text_field :cli_name , class: "form_input-text" , placeholder: "nome", required: true %>
+  </div>
+  <div class="field">
+    Meu CPF é:     <%= f.text_field :cli_cpf , class: "form_input-text" , placeholder: "cpf", required: true%>
+  </div>
+
+  <div class="field">
+    Eu nasci no :    <%= f.text_field :cli_pais , class: "form_input-text" , placeholder: "Brasil", required: true%>
+  </div>
+
+  
+  <div class="field">
+    sexo:     <%= f.select :cli_sexo, options_for_select([['selecione'],['Masculino'],['Feminino']]), {}, {required: 'true', autofocus: 'true', class: 'minimal '} %>
+  </div>
+
+  <div class="field">
+    Minha casa fica no CEP:   <%= f.text_field :cli_cep , placeholder: '00000-000'  , class: "form_input-text" , required: true%>
+  </div>
+
+  <div class="field">
+    Moro na :     <%= f.text_field :cli_end , class: "form_input-text" , required: true%>
+  </div>
+
+  <div class="field">
+    número :    <%= f.number_field :cli_end_number , class: "form_input-text" , required: true%>
+  </div>
+
+  <div class="field">
+    complemento:    <%= f.text_field :cli_end_compl , class: "form_input-text" %>
+  </div>
+
+  <div class="field">
+    Bairro:   <%= f.text_field :cli_end_bairro , class: "form_input-text" , required: true%>
+  </div>
+  <div class="field">
+        <%= f.text_field :cli_end_cidade, :readonly => true , class: "form_input-text" , required: true%>
+  </div>
+
+  <br>
+<%end%>
+
+
