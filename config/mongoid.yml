@@ -25,10 +25,10 @@ production:
         #     - use: web
 
         # The name of the user for authentication.
-        user: 'heroku_w24vjpbv'
+        user: 'cota_seg'
 
         # The password of the user for authentication.
-        # password: 'password'
+         password: 'b4sc4r4'
 
         # The user's database roles.
         # roles:
