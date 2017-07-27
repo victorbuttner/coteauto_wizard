@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { registrations: "users/registrations"}
   get 'pagamento/index'
+  match '*path' => redirect('/'), via: :get
 
-  resources :seguros
-  resources :orcamentos
+  #resources :seguros
+  resources :orcamentos, only: [:new]
   #get 'orcamentos/new'
 
 	scope "orcamentos/:_id" do
@@ -12,6 +13,6 @@ Rails.application.routes.draw do
 	end
 
   #resources :steps
-  root 'orcamentos#index'
+  root 'orcamentos#new'
  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
