@@ -165,7 +165,7 @@
 
 	<aside role="sidebar" class="col-md-4 bg-color sidebar">
 	    <h3>O valor do seu seguro:</h3>
-		<h4>R$ <span id="seguro_final" > <%= f.object.seguro_preco_final %> </span> /mês</h4>   
+		<h4>R$ <span id="seguro_final" > <%= number_with_precision(f.object.seguro_preco_final, :precision => 2) %> </span> /mês</h4>   
 	</aside>
 
 
