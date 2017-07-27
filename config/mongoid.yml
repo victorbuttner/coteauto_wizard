@@ -5,11 +5,12 @@ development:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: myapp_development
+      database: heroku_w24vjpbv
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - db_mongo:27017
+        #- db_mongo:27017
+        - ds163758.mlab.com:63758
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -24,7 +25,7 @@ development:
         #     - use: web
 
         # The name of the user for authentication.
-        # user: 'user'
+        user: 'heroku_w24vjpbv'
 
         # The password of the user for authentication.
         # password: 'password'
