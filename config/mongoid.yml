@@ -28,7 +28,7 @@ production:
         user: 'cota_seg'
 
         # The password of the user for authentication.
-         password: 'b4sc4r4'
+        password: 'b4sc4r4'
 
         # The user's database roles.
         # roles:
