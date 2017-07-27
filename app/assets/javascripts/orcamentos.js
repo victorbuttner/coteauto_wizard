@@ -76,13 +76,13 @@ $.get(endpoint, function(data) {
 });
 });
 
-
+//atualiza valor
   let dl5 = $('#orcamento_seguro_preco_final');
   let dl6 = $('#orcamento_seguro_preco') ;
   $(dl5).val($(dl6).val());
   let dl7 = $('#seguro_final');
 
-  $(dl7).text($(dl5).val() ); 
+  parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
 //update info on seguros carros
 
@@ -92,11 +92,11 @@ $.get(endpoint, function(data) {
 $('#orcamento_seg_car_reboque_300').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 10)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val())- 10)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
   });
@@ -105,11 +105,11 @@ $('#orcamento_seg_car_reboque_300').click(function() {
 $('#orcamento_seg_car_reboque_500').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 25)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 25)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
   });
@@ -117,11 +117,11 @@ $('#orcamento_seg_car_reboque_500').click(function() {
 $('#orcamento_seg_car_terceiros_50k').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 2)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 2)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
   });
@@ -129,11 +129,11 @@ $('#orcamento_seg_car_terceiros_50k').click(function() {
 $('#orcamento_seg_car_vidros').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 10)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 10)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
   });
@@ -141,11 +141,11 @@ $('#orcamento_seg_car_vidros').click(function() {
 $('#orcamento_seg_car_reserva_7d').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 10)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 10)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
   });
@@ -153,11 +153,11 @@ $('#orcamento_seg_car_reserva_7d').click(function() {
 $('#orcamento_seg_car_reserva14').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 20)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 20)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
   });
@@ -167,11 +167,11 @@ $('#orcamento_seg_car_reserva14').click(function() {
 $('#orcamento_seg_moto_reboque_300').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 10)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val())- 10)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
   });
@@ -180,11 +180,11 @@ $('#orcamento_seg_moto_reboque_300').click(function() {
 $('#orcamento_seg_moto_reboque_500').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 25)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 25)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
   });
@@ -193,11 +193,11 @@ $('#orcamento_seg_moto_reboque_500').click(function() {
 $('#orcamento_cam_reboque_300').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 26,89)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val())- 26,89)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
   });
@@ -206,33 +206,33 @@ $('#orcamento_cam_reboque_300').click(function() {
 $('#orcamento_seg_cam_terceiros_50k').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 77.50)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 77.50)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
   });
 $('#orcamento_seg_cam_terceiros_100k').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 89.33)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 89.33)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
   });
 $('#orcamento_seg_cam_terceiros_200k').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 108.19)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 108.19)
-    $(dl7).text($(dl5).val() ); 
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
   });
