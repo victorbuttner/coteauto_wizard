@@ -3,9 +3,9 @@ class OrcamentosController < ApplicationController
 
   # GET /orcamentos
   # GET /orcamentos.json
-  def index
-    @orcamentos = Orcamento.all
-  end
+  #def index
+   # @orcamentos = Orcamento.all
+  #end
 
   # GET /orcamentos/1
   # GET /orcamentos/1.json
