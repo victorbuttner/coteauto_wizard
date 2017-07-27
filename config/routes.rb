@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { registrations: "users/registrations"}
   get 'pagamento/index'
-  match '*path' => redirect('/'), via: :get
+  #match '*path' => redirect('/'), via: :get
+  match ':not_found' => redirect('/'), via: :get
 
   #resources :seguros
-  resources :orcamentos, only: [:new], :as => :orcamentos_path
+  resources :orcamentos
   #get 'orcamentos/new'
 
 	scope "orcamentos/:_id" do

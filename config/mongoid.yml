@@ -156,3 +156,13 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
+development:
+  clients:
+    default:
+      database: myapp_dev
+      hosts:
+        - db_mongo:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1

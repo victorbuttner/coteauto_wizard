@@ -1,15 +1,18 @@
 class OrcamentosController < ApplicationController
   before_action :set_orcamento, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :edit, :show, :destroy]
 
   # GET /orcamentos
   # GET /orcamentos.json
-  #def index
-   # @orcamentos = Orcamento.all
-  #end
+  def index
+
+    @orcamentos = Orcamento.all
+  end
 
   # GET /orcamentos/1
   # GET /orcamentos/1.json
   def show
+
   end
 
   def finish
@@ -23,6 +26,7 @@ class OrcamentosController < ApplicationController
 
   # GET /orcamentos/1/edit
   def edit
+
   end
 
   # POST /orcamentos
@@ -73,6 +77,6 @@ class OrcamentosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def orcamento_params
-      params.(:orcamento).permit(:cli_name, :cli_email, :cli_tel, :cli_cpf, :cli_pais, :cli_sexo, :cli_cep, :cli_end, :cli_end_number, :cli_end_compl, :cli_end_cidade, :cli_end_bairro, :vei_tipo, :vei_marca, :vei_veiculo, :vei_modelo_ano, :vei_preco, :vei_tipo_uso, :vei_placa,:seguro_preco,:seguro_preco_final, :seg_car_reboque_300, :seg_car_reboque_500 , :seg_car_terceiros_50k , :seg_car_vidros , :seg_car_reserva_7d , :seg_car_reserva14, :seg_moto_reboque_300, :seg_moto_reboque_500, :seg_cam_reboque_300, :seg_cam_terceiros_50k, :seg_cam_terceiros_100k, :seg_cam_terceiros_200k, :seg_cam_vidros)
-    end
+    params.require(:orcamento).permit(:cli_name, :cli_email, :cli_tel, :cli_cpf, :cli_pais, :cli_trab, :cli_salario, :cli_sexo, :cli_cep, :cli_end, :cli_end_number, :cli_end_compl, :cli_end_cidade, :cli_end_bairro, :vei_tipo, :vei_marca, :vei_veiculo, :vei_modelo_ano, :vei_preco, :vei_tipo_uso, :vei_placa,:seguro_preco,:seguro_preco_final, :seg_car_reboque_300, :seg_car_reboque_500 , :seg_car_terceiros_50k , :seg_car_vidros , :seg_car_reserva_7d , :seg_car_reserva14)
+    end 
 end
