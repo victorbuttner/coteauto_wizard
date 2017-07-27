@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   match '*path' => redirect('/'), via: :get
 
   #resources :seguros
-  resources :orcamentos, only: [:new], :as => :orcamentos
+  resources :orcamentos, only: [:new], :as => :orcamentos_path
   #get 'orcamentos/new'
 
 	scope "orcamentos/:_id" do
