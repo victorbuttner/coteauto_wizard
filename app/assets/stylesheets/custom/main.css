@@ -67,11 +67,6 @@ a {
 	    -ms-transition: all 250ms ease-in-out;
 	      -o-transition: all 250ms ease-in-out;
 	        transition: all 250ms ease-in-out; }
-a:-webkit-any-link {
-	color: -webkit-link;
-	cursor: auto;
-	text-decoration: underline;
-}
 a:hover, a:active, a:focus {
 	text-decoration: none; }
 a:focus {
