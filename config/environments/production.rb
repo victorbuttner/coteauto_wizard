@@ -1,6 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  # set the relative root, because we're deploying to /myrailsapp
+  config.action_controller.relative_url_root  = "/myapp"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
