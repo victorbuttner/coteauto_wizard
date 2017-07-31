@@ -3306,38 +3306,6 @@ h1.wt_slogan span {
 	text-align: right; }
 .wt_contact_form fieldset {
 	margin-bottom: 0; }
-select {
-	margin: 0;
-	border: 1px solid #dddddd;
-	background-color: -moz-Combobox;
-	color: -moz-ComboboxText;
-	font: -moz-list;
-	line-height: normal !important;
-	white-space: nowrap !important;
-	word-wrap: normal !important;
-	text-align: start; 
-	cursor: default;
-	-moz-box-sizing: border-box;
-	-moz-user-select: menulist;
-	-moz-appearance: menulist;
-	-webkit-appearance: menulist;
-	text-indent: 0;
-	overflow: -moz-hidden-unscrollable;
-	text-shadow: none;
-	background: #f7f7f7;
-	color: #898989;
-	outline: 0;
-	padding: 5px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	margin: 0;
-	width: 99%;
-	max-width: 100%;
-	-moz-box-shadow: 0 1px 2px 0 rgba(180, 180, 180, 0.2);
-	-webkit-box-shadow: 0 1px 2px 0 rgba(180, 180, 180, 0.2);
-	box-shadow: 0 1px 2px 0 rgba(180, 180, 180, 0.2);
-	border: 1px solid #d4d4d4; }
 .contact_button:active,
 .contact_button.active {
   background-image: none; }
@@ -5225,18 +5193,6 @@ ul.owl-carousel ul,
 	padding-bottom: 70px; }
 
 /* ----- Buttons ----- */
-.btn {
-	font-size: 18px;
-	padding: 8px 16px;
-	color: #fff !important;
-	-webkit-border-radius: 5px;
-	  -moz-border-radius: 5px;
-		border-radius: 5px;
-	-webkit-transition: all 250ms ease-in-out;
-	  -moz-transition: all 250ms ease-in-out;
-		-o-transition: all 250ms ease-in-out;
-		  -ms-transition: all 250ms ease-in-out;
-			transition: all 250ms ease-in-out;  }
 .btn-lg {
 	padding: 10px 16px; }
 	

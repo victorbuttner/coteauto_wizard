@@ -6,7 +6,7 @@
     font-weight: inherit;
     background-color: transparent;
     border: 0;
-    border-bottom: 1px solid #48535b;
+    border-bottom: 1px solid ;
     border-radius: 0;
 }
 
@@ -25,7 +25,7 @@ select {
 
   /* styling */
   background-color: white;
-  border: thin solid blue;
+  border: thin solid black;
   border-radius: 4px;
   display: inline-block;
   font: inherit;
@@ -112,7 +112,6 @@ select.round:focus {
     5px 5px,
     1.5em 1.5em;
   background-repeat: no-repeat;
-  border-color: green;
   outline: 0;
 }
 
@@ -150,7 +149,6 @@ select.minimal:focus {
     5px 5px,
     1px 1.5em;
   background-repeat: no-repeat;
-  border-color: green;
   outline: 0;
 }
 

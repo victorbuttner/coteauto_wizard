@@ -1,9 +1,20 @@
 $(function() {
 
 
+//esconde elementos:
+$('#marca').fadeOut();
+$('#veiculo').fadeOut();
+$('#ano').fadeOut();
+$('#cep').fadeOut();
+$('#nacionalidade').fadeOut();
+$('#tipo_uso').fadeOut();
+
+
+
 //update data on veicle information
 
 $('#orcamento_vei_tipo').click(function() {
+$('#marca').fadeIn();
 $.get('https://fipeapi.appspot.com/api/1/' + $('#orcamento_vei_tipo').val().toLowerCase().replace('õ','o') + '/marcas.json', function(data) {
 // populate #brand
 let dl1 = $('#orcamento_vei_marca');
@@ -22,6 +33,8 @@ $.each(data, function(index, value) {
 
 
 $('#orcamento_vei_marca').change(function() {
+$('#veiculo').fadeIn();
+
 endpoint = 'https://fipeapi.appspot.com/api/1/' + $('#orcamento_vei_tipo').val().toLowerCase().replace('ẽ','e') + '/veiculos/'+ $('#orcamento_vei_marca').children(":selected").attr("id") + '.json';
 console.log("URL")
 console.log(endpoint);
@@ -42,6 +55,8 @@ console.log(JSON.stringify(data))
 
 
 $('#orcamento_vei_veiculo').change(function() {
+$('#ano').fadeIn();
+
 endpoint = 'https://fipeapi.appspot.com/api/1/' + $('#orcamento_vei_tipo').val().toLowerCase().replace('ẽ','e') + '/veiculo/' + $('#orcamento_vei_marca').children(":selected").attr("id") + '/' + $('#orcamento_vei_veiculo').children(":selected").attr("id") + '.json';
 console.log("URL")
 console.log(endpoint);
@@ -61,6 +76,9 @@ console.log(JSON.stringify(data))
 });
 
 $('#orcamento_vei_modelo_ano').change(function() {
+$('#cep').fadeIn();
+$('#nacionalidade').fadeIn();
+$('#tipo_uso').fadeIn(); 
 endpoint = 'https://fipeapi.appspot.com/api/1/' + $('#orcamento_vei_tipo').val().toLowerCase().replace('ẽ','e') + '/veiculo/' + $('#orcamento_vei_marca').children(":selected").attr("id") + '/' + $('#orcamento_vei_veiculo').children(":selected").attr("id") + '/' +  $('#orcamento_vei_modelo_ano').children(":selected").attr("id") + '.json';
 console.log("URL")
 console.log(endpoint);

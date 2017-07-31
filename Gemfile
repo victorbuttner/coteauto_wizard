@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails_admin', '~> 1.2'
+gem "font-awesome-rails"
 
 #gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
 gem 'devise'

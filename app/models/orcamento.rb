@@ -14,6 +14,7 @@ class Orcamento
   field :cli_end_cidade, type: String
   field :cli_end_bairro, type: String
   field :vei_tipo, type: String
+  field :vei_nacionalidade, type: String
   field :vei_marca, type: String
   field :vei_veiculo, type: String
   field :vei_modelo_ano, type: String

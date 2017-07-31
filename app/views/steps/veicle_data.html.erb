@@ -1,27 +1,41 @@
 
-<h3>Vamos agora precisar de algumas informações do seu veículo </h3>
+<h3>Agora, fale um pouquinho sobre o seu veículo.</h3>
  
-<%= render layout: 'form' do |f| %>
+<%= render layout: 'form'  do |f| %>
 
   
   <div class="field">
-    Selecione o tipo de veículo :    <%= f.select :vei_tipo, options_for_select([['Carros'],['Motos'],['Caminhões'],['Nauticas']]), {}, {required: 'true', autofocus: 'true', class: 'minimal'}   %>
+    Meu veículo é um :      <%= f.select :vei_tipo, options_for_select([['Carro'],['Moto'],['Caminhão'],['Nautica']]), {}, {required: 'true', autofocus: 'false', class: 'minimal'}   %>
   </div>
 
-  <div class="field">
+  
+
+  <div class="field" id="marca">
     Eu tenho um :   <%= f.select :vei_marca, options_for_select([]) , {}, {required: 'true', autofocus: 'true', class: 'minimal '} %>
-    <%= f.select :vei_veiculo , options_for_select([['Veículo']]), {}, {required: 'true', autofocus: 'true', class: 'minimal '}%>
   </div>
 
-  <div class="field">
+  <div class="field " id="veiculo">
+   Modelo: <%= f.select :vei_veiculo , options_for_select([['Veículo']]), {}, {required: 'true', autofocus: 'true', class: 'minimal '}%>
+
+  </div>
+
+  <div class="field " id="ano">
    Ano :    <%= f.select :vei_modelo_ano , options_for_select([[]]), {}, {required: 'true', autofocus: 'true', class: 'selectpicker '}%>
   </div>
 
-  <div class="field">
+  <div class="field ">
     <%= f.hidden_field :vei_preco, :value => '' ,class: "form_input-text" %>
   </div>
 
-  <div class="field">
+    <div class="field " id="cep">
+    cep:     <%= f.text_field :cli_cep , class: "form_input-text", placeholder: "999999999" , required: true%>
+  </div>
+
+  <div class="field " id="nacionalidade">
+    Meu carro é : <%= f.select :vei_nacionalidade, options_for_select([['Nacional'],['Importado']]), {}, {required: 'true', autofocus: 'true', class: 'minimal'}   %>
+  </div>
+
+  <div class="field " id="tipo_uso">
     e seu uso é   <%= f.select :vei_tipo_uso, options_for_select([["Selecione"],["Particular"],["Uber"],["Taxi"],["veiclega"]]), {}, {required: 'true', autofocus: 'true', class: 'minimal '} %>
   </div>
 
