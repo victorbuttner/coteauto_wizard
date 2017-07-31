@@ -1,7 +1,7 @@
 class StepsController < ApplicationController
 	include Wicked::Wizard
 
-	steps :veicle_data, :select_seg, :finish_profile
+	steps :veicle_data, :select_seg
 
 
 	def show

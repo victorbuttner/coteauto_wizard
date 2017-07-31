@@ -123,6 +123,9 @@ GEM
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     orm_adapter (0.5.0)
+    passenger (5.1.6)
+      rack
+      rake (>= 0.8.1)
     puma (3.9.1)
     rack (2.0.3)
     rack-pjax (1.0.0)
@@ -238,6 +241,7 @@ DEPENDENCIES
   kaminari-mongoid
   listen (~> 3.0.5)
   mongoid
+  passenger
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails_admin (~> 1.2)
