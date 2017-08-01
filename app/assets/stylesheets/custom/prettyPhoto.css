@@ -183,4 +183,4 @@ a.pp_close { right: 10px!important; top: 10px!important; }
 div.pp_default div .pp_content {min-height: 50px;}
 div.pp_inline { padding: 2%!important; overflow: hidden; }
 #pp_full_res div.pp_inline img { width: auto!important; height: auto!important; }
-#pp_full_res iframe, #pp_full_res object, #pp_full_res embed { width: 100%!important; height: auto!important; }
+#pp_full_res iframe, #pp_full_res object, #pp_full_res embed { width: 100%!important; height: auto!important; }}

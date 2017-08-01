@@ -375,7 +375,7 @@ form .form-row .input-checkbox {
 	float: right;
 	margin-top: 3px!important;  
 }
-.woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #content input.button:hover, .woocommerce-page a.button:hover, .woocommerce-page button.button:hover, .woocommerce-page input.button:hover,, .woocommerce-page #content input.button:hover {
+.woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #content input.button:hover, .woocommerce-page a.button:hover, .woocommerce-page button.button:hover, .woocommerce-page input.button:hover, .woocommerce-page #content input.button:hover {
 	color: #eee; }
 .woocommerce .products .star-rating, .woocommerce-page .products .star-rating {
 	margin: 0 auto .5em; }

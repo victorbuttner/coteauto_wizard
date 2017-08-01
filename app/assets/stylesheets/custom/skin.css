@@ -1,7 +1,6 @@
 body {
 	font-size: 14px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;;
-	color: ;	
 }
 #wt_page {
 	/*overflow: hidden;*/
@@ -21,7 +20,6 @@ h1, h2, h3, h4, h5, h6, #logo, #nav.wt_nav_top .navbar-nav > li > a, .wt_counter
 	height: -40px;
 }
 body.wt_pattern {	
-	background-color: ;
 }
 body.wt_image_bg {
 }
@@ -30,63 +28,63 @@ body.wt_parallax {
 #wt_header,
 #stickyHeaderBg,
 .sticky-wrapper #wt_header {
-	background-color: ;
+	
 }
 #topWidgetWrapper {
-	background-color: ;
+	
 }
 #wt_breadcrumbs_wrapp {
-	background-color: ;
+	
 }
 #wt_breadcrumbs .breadcrumbs,
 #wt_breadcrumbs .breadcrumbs a {
-	color: ;
+	
 }
 #wt_wrapper {
-	background-color: ;
+	
 }
 #wt_footerTop {	
-	background-color: ;
+	
 }
 #wt_footer {	
-	background-color: ;
+	
 }
 #wt_footerBottom {	
-	background-color: ;
+	
 }
 h1, h2, h3, h4, h5, h6 {
-	color: ;
+	
 }
 h1 {
 	font-size: 36px;
-	color: ;
+	
 }
 h2 {
 	font-size: 30px;
-	color: ;
+	
 }
 h3 {
 	font-size: 24px;
-	color: ;
+	
 }
 h4 {
 	font-size: 18px;
-	color: ;
+	
 }
 h5 {
 	font-size: 14px;
-	color: ;
+	
 }
 h6 {
 	font-size: 12px;
-	color: ;
+	
 }
 .logo_text a {
-	color: ;
+	
 	font-size: 26px;
 }
 #siteDescription {
-	color: ;
+	
 	font-size: 12px;
 }
 #nav.wt_nav_top .navbar-nav > li > a,
@@ -119,24 +117,24 @@ h6 {
 #nav.wt_nav_side ul ul a, 
 #nav.wt_nav_side ul ul.sub-menu li a, 
 #nav.wt_nav_side ul ul.children li a {
-	color: ;
+	
 	font-size: 13px;
 }
 #nav ul li ul li a:hover {
 	color:  !important;
 }
 #wt_footerWrapper .wt_copyright {
-	color: ;
+	
 	font-size: 13px;
 }
 #wt_footer .widget,
 #wt_footer p {
-	color: ;
+	
 	font-size: 13.5px;
 }
 #wt_footerWrapper  h3.widgettitle,
 #wt_footerWrapper  h4.widgettitle  {
-	color: ;
+	
 	font-size: 18px;
 }
 #wt_sidebar .widgettitle {
