@@ -6,6 +6,7 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Myapp" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -30,7 +31,7 @@
   </div>
 </div></div>
 </div>
-<div class="col-md-6 text-center" >
+<div class="col-sm-6 text-center" >
           
            <%= yield %>
 </div>
