@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails_admin', '~> 1.2'
-gem "font-awesome-rails"
+gem "font-awesome-sass"
 
 
 #gem "passenger",  require: "phusion_passenger/rack_handler"
@@ -31,6 +31,8 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+#gem 'sass', '~> 3.2.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

@@ -34,6 +34,7 @@
    01. Primary Styles - Author: WhoaThemes
    ========================================================================== */
 
+
 html, body { position: relative; }
 img { height: auto; image-rendering: optimizeQuality; }
 img,object,video,embed { max-width: 100%; }
