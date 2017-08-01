@@ -32,13 +32,19 @@
 
 			<div class="col-md-6">	
 				<h4>Vamos Personalizar as coisas?</h4>
-
-				<div class="field">
+				<div id="reboque">
 					Reboque: <br>
-				    300KM     <%= f.check_box :seg_car_reboque_300   %>
-				   	500KM    <%= f.check_box :seg_car_reboque_500 %>
-				</div>
 
+					<div class="field">
+					    300KM     <%= f.check_box :seg_car_reboque_300   %>
+					   	
+					</div>
+					<div class="field">
+
+						500KM    <%= f.check_box :seg_car_reboque_500 %>
+					</div>
+				</div>
+				
 				<div class="field">
 				    Seguro contra terceiros (R$ 50.000,00)    <%= f.check_box :seg_car_terceiros_50k %>
 				</div>
@@ -46,16 +52,18 @@
 				<div class="field">
 				    Seguro Vidros   <%= f.check_box :seg_car_vidros %>
 				</div>
-
+				<div id="reserva">
+				Carros Reserva: <br>
 				<div class="field">
-				    Carros Reserva: <br>
+				    
 				    7 dias : <%= f.check_box :seg_car_reserva_7d %>
-				    14 dias : <%= f.check_box :seg_car_reserva14 %>
+				    
 
-			</div>
-
-
-
+				</div>
+				<div class="field">
+					14 dias : <%= f.check_box :seg_car_reserva14 %>
+				</div>
+				</div>
 
 		<% elsif  (f.object.vei_tipo == 'Carros' && f.object.vei_nacionalidade == 'Importado') %>
 
