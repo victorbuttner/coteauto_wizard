@@ -13,7 +13,7 @@ $('#tipo_uso').fadeOut();
 
 //update data on veicle information
 
-$('#orcamento_vei_tipo').click(function() {
+$('#orcamento_vei_tipo').change(function() {
 $('#marca').fadeIn();
 $.get('https://fipeapi.appspot.com/api/1/' + $('#orcamento_vei_tipo').val().toLowerCase().replace('õ','o') + '/marcas.json', function(data) {
 // populate #brand
@@ -35,7 +35,7 @@ $.each(data, function(index, value) {
 $('#orcamento_vei_marca').change(function() {
 $('#veiculo').fadeIn();
 
-endpoint = 'https://fipeapi.appspot.com/api/1/' + $('#orcamento_vei_tipo').val().toLowerCase().replace('ẽ','e') + '/veiculos/'+ $('#orcamento_vei_marca').children(":selected").attr("id") + '.json';
+endpoint = 'https://fipeapi.appspot.com/api/1/' + $('#orcamento_vei_tipo').val().toLowerCase().replace('õ','o') + '/veiculos/'+ $('#orcamento_vei_marca').children(":selected").attr("id") + '.json';
 console.log("URL")
 console.log(endpoint);
 $.get(endpoint, function(data) {
@@ -57,7 +57,7 @@ console.log(JSON.stringify(data))
 $('#orcamento_vei_veiculo').change(function() {
 $('#ano').fadeIn();
 
-endpoint = 'https://fipeapi.appspot.com/api/1/' + $('#orcamento_vei_tipo').val().toLowerCase().replace('ẽ','e') + '/veiculo/' + $('#orcamento_vei_marca').children(":selected").attr("id") + '/' + $('#orcamento_vei_veiculo').children(":selected").attr("id") + '.json';
+endpoint = 'https://fipeapi.appspot.com/api/1/' + $('#orcamento_vei_tipo').val().toLowerCase().replace('õ','o') + '/veiculo/' + $('#orcamento_vei_marca').children(":selected").attr("id") + '/' + $('#orcamento_vei_veiculo').children(":selected").attr("id") + '.json';
 console.log("URL")
 console.log(endpoint);
 $.get(endpoint, function(data) {
@@ -79,7 +79,7 @@ $('#orcamento_vei_modelo_ano').change(function() {
 $('#cep').fadeIn();
 $('#nacionalidade').fadeIn();
 $('#tipo_uso').fadeIn(); 
-endpoint = 'https://fipeapi.appspot.com/api/1/' + $('#orcamento_vei_tipo').val().toLowerCase().replace('ẽ','e') + '/veiculo/' + $('#orcamento_vei_marca').children(":selected").attr("id") + '/' + $('#orcamento_vei_veiculo').children(":selected").attr("id") + '/' +  $('#orcamento_vei_modelo_ano').children(":selected").attr("id") + '.json';
+endpoint = 'https://fipeapi.appspot.com/api/1/' + $('#orcamento_vei_tipo').val().toLowerCase().replace('õ','o') + '/veiculo/' + $('#orcamento_vei_marca').children(":selected").attr("id") + '/' + $('#orcamento_vei_veiculo').children(":selected").attr("id") + '/' +  $('#orcamento_vei_modelo_ano').children(":selected").attr("id") + '.json';
 console.log("URL")
 console.log(endpoint);
 $.get(endpoint, function(data) {
@@ -94,6 +94,7 @@ $.get(endpoint, function(data) {
 });
 });
 
+
 //atualiza valor
   let dl5 = $('#orcamento_seguro_preco_final');
   let dl6 = $('#orcamento_seguro_preco') ;
@@ -101,6 +102,7 @@ $.get(endpoint, function(data) {
   let dl7 = $('#seguro_final');
 
   parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+
 
 //update info on seguros carros
 
@@ -170,11 +172,87 @@ $('#orcamento_seg_car_reserva_7d').click(function() {
 
 $('#orcamento_seg_car_reserva14').click(function() {
   if($(this).is(':checked')){
+    $(dl5).val(parseFloat($(dl5).val())  + 14)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+
+  }else{
+    $(dl5).val(parseFloat($(dl5).val()) - 14)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+    }
+
+  });
+
+
+//carro importado
+
+$('#orcamento_seg_car_imp_reboque_300').click(function() {
+  if($(this).is(':checked')){
+    $(dl5).val(parseFloat($(dl5).val())  + 12)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+
+  }else{
+    $(dl5).val(parseFloat($(dl5).val())- 12)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+    }
+
+  });
+
+
+$('#orcamento_seg_car_imp_reboque_500').click(function() {
+  if($(this).is(':checked')){
+    $(dl5).val(parseFloat($(dl5).val())  + 33)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+
+  }else{
+    $(dl5).val(parseFloat($(dl5).val()) - 33)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+    }
+
+  });
+
+$('#orcamento_seg_car_imp_terceiros_50k').click(function() {
+  if($(this).is(':checked')){
+    $(dl5).val(parseFloat($(dl5).val())  + 3)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+
+  }else{
+    $(dl5).val(parseFloat($(dl5).val()) - 3)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+    }
+
+  });
+
+$('#orcamento_seg_car_imp_vidros').click(function() {
+  if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 20)
     parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 20)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+    }
+
+  });
+
+$('#orcamento_seg_car_imp_reserva_7d').click(function() {
+  if($(this).is(':checked')){
+    $(dl5).val(parseFloat($(dl5).val())  + 10)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+
+  }else{
+    $(dl5).val(parseFloat($(dl5).val()) - 10)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+    }
+
+  });
+
+$('#orcamento_seg_car_imp_reserva14').click(function() {
+  if($(this).is(':checked')){
+    $(dl5).val(parseFloat($(dl5).val())  + 14)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+
+  }else{
+    $(dl5).val(parseFloat($(dl5).val()) - 14)
     parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
@@ -208,13 +286,13 @@ $('#orcamento_seg_moto_reboque_500').click(function() {
   });
 
 //update price caminão
-$('#orcamento_cam_reboque_300').click(function() {
+$('#orcamento_seg_cam_reboque_300').click(function() {
   if($(this).is(':checked')){
-    $(dl5).val(parseFloat($(dl5).val())  + 26,89)
+    $(dl5).val(parseFloat($(dl5).val())  + 26.89)
     parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
 
   }else{
-    $(dl5).val(parseFloat($(dl5).val())- 26,89)
+    $(dl5).val(parseFloat($(dl5).val()) - 26.89)
     parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
@@ -250,6 +328,18 @@ $('#orcamento_seg_cam_terceiros_200k').click(function() {
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 108.19)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+    }
+
+  });
+
+$('#orcamento_seg_cam_vidros').click(function() {
+  if($(this).is(':checked')){
+    $(dl5).val(parseFloat($(dl5).val())  + 30)
+    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+
+  }else{
+    $(dl5).val(parseFloat($(dl5).val()) - 30)
     parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
     }
 
