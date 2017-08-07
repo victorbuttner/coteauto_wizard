@@ -11,8 +11,21 @@
     </div>
   <% end %>
 <br>
+<div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner clearfix"><div class="wpb_wrapper wt_wpb_wrapper clearfix">
+  <div class="wpb_single_image wpb_content_element vc_align_left  wpb_animate_when_almost_visible wpb_left-to-right vc_custom_1478020438959 wpb_start_animation">
+    
+    <figure class="wpb_wrapper vc_figure">
+      <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="191" height="300" src="http://coteauto.com.br/wp-content/uploads/2014/11/mascote-191x300.png" class="vc_single_image-img attachment-medium" alt="mascote" srcset="http://coteauto.com.br/wp-content/uploads/2014/11/mascote-191x300.png 191w, http://coteauto.com.br/wp-content/uploads/2014/11/mascote-651x1024.png 651w, http://coteauto.com.br/wp-content/uploads/2014/11/mascote.png 682w" sizes="(max-width: 191px) 100vw, 191px"></div>
+    </figure>
+  </div>
+</div></div>
+</div>
+
+<%= f.hidden_field :current_step , :value => 'new'%>
+
+<div class="col-sm-6">
 <div clas="row">
-<h3 text-color="red"> <strong>Seu veículo merece esta proteção!</strong></h3>
+<h3 text-color="red"> Seu veículo merece esta proteção!</h3>
 <div class="col-md-3">
   <%= fa_icon "car 4x" %>
 </div>
@@ -33,20 +46,22 @@
   <br>
 
 
-  <div class="field">
+  <div class="field" id="nome">
     Meu nome é   <%= f.text_field :cli_name , class: "form_input-text" , placeholder: "nome", required: true %>
     </div>
-  <div class="field">
+  <div class="field" id="phone">
 
     Se a <strong>Cote Auto</strong> precisar falar comigo, pode me ligar no : <%= f.telephone_field :cli_tel , class: "form_input-text", placeholder: "(XX) XXXX-XXXX" , required: true %>
   </div>
-  <div class="field">
+  <div class="field" id="email">
 
   ou mandar um e-mail para <%= f.email_field :cli_email , class: "form_input-text" , placeholder: "nome@email.com" , required: true%>
 
   </div>
 
   <div class="actions ">
-    <%= f.submit 'Continuar', :class => 'btn btn-primary' %>
+    <%= f.submit 'Próximo passo', :class => 'btn btn-primary' %>
+  </div>
+
   </div>
 <% end %>

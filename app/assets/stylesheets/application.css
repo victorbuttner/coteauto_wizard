@@ -18,3 +18,13 @@
 main {
     background-color: #fff;
 }
+
+.field {
+	font-size: 14px;
+	padding-top: 10px;
+
+}
+
+.fixed-panel {
+ height: 250px;
+}

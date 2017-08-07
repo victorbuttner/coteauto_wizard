@@ -1,19 +1,31 @@
-$(function() {
+$(document).ready(function() {
 
 
 //esconde elementos:
-$('#marca').fadeOut();
+$('#phone').fadeOut();
+$('#email').fadeOut();
+//
 $('#veiculo').fadeOut();
 $('#ano').fadeOut();
 $('#cep').fadeOut();
 $('#nacionalidade').fadeOut();
 $('#tipo_uso').fadeOut();
+$('#preco').fadeOut();
+//
+$('#nome').on('keypress',(function()  {
+  $('#phone').fadeIn();
+}))
+$('#phone').on('keypress',(function()  {
+  $('#email').fadeIn();
+}))
 
 
 
 //update data on veicle information
+console.log($('#orcamento_vei_tipo').val())
 
-$('#orcamento_vei_tipo').change(function() {
+function fipe() {
+console.log('FIPE')
 $('#marca').fadeIn();
 $.get('https://fipeapi.appspot.com/api/1/' + $('#orcamento_vei_tipo').val().toLowerCase().replace('õ','o') + '/marcas.json', function(data) {
 // populate #brand
@@ -28,9 +40,6 @@ $.each(data, function(index, value) {
   }));
 });
 });
-});
-
-
 
 $('#orcamento_vei_marca').change(function() {
 $('#veiculo').fadeIn();
@@ -94,7 +103,36 @@ $.get(endpoint, function(data) {
 });
 });
 
+};
 
+function nautica() {
+  $('#marca').on('keypress',(function()  {
+  $('#veiculo').fadeIn();
+  }))
+  $('#veiculo').on('keypress',(function()  {
+  $('#ano').fadeIn();
+  }))
+  $('#ano').on('keypress',(function()  {
+  $('#preco').fadeIn();
+  }))
+  $('#preco').on('keypress',(function()  {
+  $('#cep').fadeIn();
+  }))
+  $('#cep').on('keypress',(function()  {
+  $('#nacionalidade').fadeIn();
+  }))
+$('#nacionalidade').on('click',(function()  {
+  $('#tipo_uso').fadeIn();
+  }))
+}
+
+if ($('#orcamento_vei_tipo').val() != 'Nautica'){
+  console.log('if')
+  fipe();
+} if ($('#orcamento_vei_tipo').val() == 'Nautica') {
+  console.log('else')
+  nautica();
+};
 //atualiza valor
   let dl5 = $('#orcamento_seguro_preco_final');
   let dl6 = $('#orcamento_seguro_preco') ;
@@ -102,7 +140,6 @@ $.get(endpoint, function(data) {
   let dl7 = $('#seguro_final');
 
   parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
-
 
 //update info on seguros carros
 

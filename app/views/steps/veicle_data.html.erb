@@ -2,42 +2,75 @@
 <h3>Agora, fale um pouquinho sobre o seu veículo.</h3>
  
 <%= render layout: 'form'  do |f| %>
+<%= f.hidden_field :current_step , :value => "veicle_data" %>
 
   
   <div class="field">
-    Meu veículo é um :      <%= f.select :vei_tipo, options_for_select([['Carros'],['Motos'],['Caminhões'],['Nautica']]), {}, {required: 'true', autofocus: 'false', class: 'minimal'}   %>
+    Meu veículo é um :      <%= f.text_field :vei_tipo    %>
   </div>
 
-  
+  <% if (f.object.vei_tipo == "Nautica" ) %>
 
-  <div class="field" id="marca">
-    Eu tenho um :   <%= f.select :vei_marca, options_for_select([]) , {}, {required: 'true', autofocus: 'true', class: 'minimal '} %>
-  </div>
+    <div class="field" id="marca">
+      Eu tenho um :  (bote,barco,lancha...) <%= f.text_field :vei_marca,   {required: 'true', autofocus: 'true',class: "form_input-text"} %>
+    </div>
 
-  <div class="field " id="veiculo">
-   Modelo: <%= f.select :vei_veiculo , options_for_select([['Veículo']]), {}, {required: 'true', autofocus: 'true', class: 'minimal '}%>
+    <div class="field " id="veiculo">
+     Modelo: <%= f.text_field  :vei_veiculo ,    {required: 'true', autofocus: 'true',class: "form_input-text"} %>
 
-  </div>
+    </div>
 
-  <div class="field " id="ano">
-   Ano :    <%= f.select :vei_modelo_ano , options_for_select([[]]), {}, {required: 'true', autofocus: 'true', class: 'selectpicker '}%>
-  </div>
+    <div class="field " id="ano">
+     Ano :    <%= f.text_field  :vei_modelo_ano ,    {required: 'true', autofocus: 'true',class: "form_input-text"} %>
+    </div>
 
-  <div class="field ">
-    <%= f.hidden_field :vei_preco, :value => '' ,class: "form_input-text" %>
-  </div>
+    <div class="field " id="preco">
+      Ele vale mais ou menos R$ : <%= f.text_field :vei_preco, {required: 'true', autofocus: 'true',class: "form_input-text"}%>
+    </div>
 
-    <div class="field " id="cep">
-    cep:     <%= f.text_field :cli_cep , class: "form_input-text", placeholder: "999999999" , required: true%>
-  </div>
+      <div class="field " id="cep">
+      cep:     <%= f.text_field :cli_cep , class: "form_input-text", placeholder: "999999999" , required: true%>
+    </div>
 
-  <div class="field " id="nacionalidade">
-    Meu carro é : <%= f.select :vei_nacionalidade, options_for_select([['Nacional'],['Importado']]), {}, {required: 'true', autofocus: 'true', class: 'minimal'}   %>
-  </div>
+    <div class="field " id="nacionalidade">
+      Meu veículo é : <%= f.select :vei_nacionalidade, options_for_select([['Nacional'],['Importado']]), {}, {required: 'true', autofocus: 'true', class: 'minimal'}   %>
+    </div>
 
-  <div class="field " id="tipo_uso">
-    e seu uso é   <%= f.select :vei_tipo_uso, options_for_select([["Selecione"],["Particular"],["Uber"],["Taxi"],["veiclega"]]), {}, {required: 'true', autofocus: 'true', class: 'minimal '} %>
-  </div>
+    <div class="field " id="tipo_uso">
+      e seu uso é   <%= f.select :vei_tipo_uso, options_for_select([["Selecione"],["Particular"],["Trabalho"]]), {}, {required: 'true', autofocus: 'true', class: 'minimal '} %>
+    </div>
 
+  <% else %>
+
+    <div class="field" id="marca">
+      Eu tenho um :   <%= f.select :vei_marca, options_for_select([]) , {}, {required: 'true', autofocus: 'true', class: 'minimal '} %>
+    </div>
+
+    <div class="field " id="veiculo">
+     Modelo: <%= f.select :vei_veiculo , options_for_select([['Veículo']]), {}, {required: 'true', autofocus: 'true', class: 'minimal '}%>
+
+    </div>
+
+    <div class="field " id="ano">
+     Ano :    <%= f.select :vei_modelo_ano , options_for_select([[]]), {}, {required: 'true', autofocus: 'true', class: 'selectpicker '}%>
+    </div>
+
+    <div class="field ">
+      <%= f.hidden_field :vei_preco, :value => '' ,class: "form_input-text" %>
+    </div>
+
+      <div class="field " id="cep">
+      cep:     <%= f.text_field :cli_cep , class: "form_input-text", placeholder: "999999999" , required: true%>
+    </div>
+
+    <div class="field " id="nacionalidade">
+      Meu carro é : <%= f.select :vei_nacionalidade, options_for_select([['Nacional'],['Importado']]), {}, {required: 'true', autofocus: 'true', class: 'minimal'}   %>
+    </div>
+
+    <div class="field " id="tipo_uso">
+      e seu uso é   <%= f.select :vei_tipo_uso, options_for_select([["Selecione"],["Particular"],["Uber"],["Taxi"],["veiclega"]]), {}, {required: 'true', autofocus: 'true', class: 'minimal '} %>
+    </div>
+
+  <%end%>
   
 <%end%>
