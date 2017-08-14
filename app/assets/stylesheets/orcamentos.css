@@ -199,6 +199,13 @@ select:-moz-focusring {
   background-color: #6d6d6d;
   border-color: #b7b7b7;
 }
+.panel-warning > .panel-heading {
+  background-color: #DAA520 ;
+  border-color: #F0E68C;
+}
+.panel-warning > .panel-body {
+  background-color: #FFDF00 ;
+}
 .panel-grey > .panel-body {
   background-color: #808080;
 }

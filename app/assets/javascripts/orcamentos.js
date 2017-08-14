@@ -12,10 +12,10 @@ $('#nacionalidade').fadeOut();
 $('#tipo_uso').fadeOut();
 $('#preco').fadeOut();
 //
-$('#nome').on('keypress',(function()  {
+$('#nome').on('keyup',(function()  {
   $('#phone').fadeIn();
 }))
-$('#phone').on('keypress',(function()  {
+$('#phone').on('keyup',(function()  {
   $('#email').fadeIn();
 }))
 
@@ -110,19 +110,19 @@ $.get(endpoint, function(data) {
 };
 
 function nautica() {
-  $('#marca').on('keypress',(function()  {
+  $('#marca').on('keyup',(function()  {
   $('#veiculo').fadeIn();
   }))
-  $('#veiculo').on('keypress',(function()  {
+  $('#veiculo').on('keyup',(function()  {
   $('#ano').fadeIn();
   }))
-  $('#ano').on('keypress',(function()  {
+  $('#ano').on('keyup',(function()  {
   $('#preco').fadeIn();
   }))
-  $('#preco').on('keypress',(function()  {
+  $('#preco').on('keyup',(function()  {
   $('#cep').fadeIn();
   }))
-  $('#cep').on('keypress',(function()  {
+  $('#cep').on('keyup',(function()  {
   $('#nacionalidade').fadeIn();
   }))
 $('#nacionalidade').on('click',(function()  {
