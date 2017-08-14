@@ -7,13 +7,15 @@
 		<%= render layout: 'form' do |f| %>
 <%= f.hidden_field :current_step , :value => "select_seg" %>
 
-		<h3>Seu carro está avaliado em R$ <span class ="destaque" ><%= f.object.vei_preco  %>,00 </span> </h3>
+		<h3>Seu carro está avaliado em R$ <span class ="destaque" ><%= number_with_precision(f.object.vei_preco, :precision => 2)  %> </span> </h3>
 	</div>
 			
 	
 	<div class="row text-center"> 
-		<h4>A Melhor Cotação Ficou na </h4> 
+		<h3>A Melhor Cotação Ficou na </h3> 
 		<%= image_tag('/images/seguro.png') %>
+		<h4>Maior e mais completa associação do Brasil<br>
+			Escolha as coberturas iniciais e continue personalizando sua proteção </h4>
 	</div>
 <br>
 
@@ -23,7 +25,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div class="panel text-center price-panel panel-blue">
             <div class="panel-heading">
-              <h4>SILVER</h4>
+              <h4>BÁSICO</h4>
             </div>
             <div class="panel-body">
               <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_silver, :precision => 2) %> / mês</strong></p>
@@ -32,7 +34,7 @@
               <li class="list-group-item"><i class="fa fa-check text-success"></i> Roubo, Furto, Incêndio</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 100km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
@@ -43,16 +45,16 @@
             </ul>
             <div class="panel-footer">
 				<label class="btn btn-lg btn-block btn-primary">
-					<%= f.radio_button  :seguro_plan,  "silver", class: 'hidden' %> Selecione
+					<%= f.radio_button  :seguro_plan,  "BÁSICO", class: 'hidden' %> Selecione
 				</label>            
 			</div>
           </div>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-          <div class="panel text-center price-panel panel-green">
+          <div class="panel text-center price-panel panel-warning">
             <div class="panel-heading">
-              <h4>RECOMENDADO</h4>
+              <h4>GOLD</h4>
             </div>
             <div class="panel-body">
               <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2) %> / mês</strong></p>
@@ -61,7 +63,7 @@
               <li class="list-group-item"><i class="fa fa-check text-success"></i> Roubo, Furto, Incêndio</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 300km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
@@ -80,7 +82,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 	         <div class="panel text-center price-panel panel-red">
 	            <div class="panel-heading">
-	              <h4>PLANO PRO</h4>
+	              <h4>VIP</h4>
 	            </div>
 	            <div class="panel-body">
 	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_pro, :precision => 2) %> / mês</strong></p>
@@ -89,7 +91,7 @@
 	              <li class="list-group-item"><i class="fa fa-check text-success"></i> Roubo, Furto, Incêndio</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 500km ( 4 x )</li>
+	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
@@ -111,7 +113,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div class="panel text-center price-panel panel-blue">
             <div class="panel-heading">
-              <h4>SILVER</h4>
+              <h4>BÁSICO</h4>
             </div>
             <div class="panel-body">
               <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_silver, :precision => 2) %> / mês</strong></p>
@@ -120,7 +122,7 @@
               <li class="list-group-item"><i class="fa fa-check text-success"></i> Roubo, Furto, Incêndio</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 100km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
@@ -131,16 +133,16 @@
             </ul>
             <div class="panel-footer">
 				<label class="btn btn-lg btn-block btn-primary">
-					<%= f.radio_button  :seguro_plan,  "silver", class: 'hidden' %> Selecione
+					<%= f.radio_button  :seguro_plan,  "BÁSICO", class: 'hidden' %> Selecione
 				</label>            
 			</div>
           </div>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-          <div class="panel text-center price-panel panel-green">
+          <div class="panel text-center price-panel panel-warning">
             <div class="panel-heading">
-              <h4>RECOMENDADO</h4>
+              <h4>GOLD</h4>
             </div>
             <div class="panel-body">
               <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2) %> / mês</strong></p>
@@ -149,7 +151,7 @@
               <li class="list-group-item"><i class="fa fa-check text-success"></i> Roubo, Furto, Incêndio</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 300km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
@@ -168,7 +170,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 	         <div class="panel text-center price-panel panel-red">
 	            <div class="panel-heading">
-	              <h4>PLANO PRO</h4>
+	              <h4>VIP</h4>
 	            </div>
 	            <div class="panel-body">
 	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_pro, :precision => 2) %> / mês</strong></p>
@@ -177,7 +179,7 @@
 	              <li class="list-group-item"><i class="fa fa-check text-success"></i> Roubo, Furto, Incêndio</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 500km ( 4 x )</li>
+	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
@@ -199,16 +201,16 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div class="panel text-center price-panel panel-blue">
             <div class="panel-heading">
-              <h4>SILVER</h4>
+              <h4>BÁSICO</h4>
             </div>
             <div class="panel-body">
               <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_silver, :precision => 2) %> / mês</strong></p>
             </div>
             <ul class="list-group">
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 100km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$20.000,00</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
@@ -217,25 +219,25 @@
             </ul>
             <div class="panel-footer">
 				<label class="btn btn-lg btn-block btn-primary">
-					<%= f.radio_button  :seguro_plan,  "silver", class: 'hidden' %> Selecione
+					<%= f.radio_button  :seguro_plan,  "BÁSICO", class: 'hidden' %> Selecione
 				</label>            
 			</div>
           </div>
         </div>
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-          <div class="panel text-center price-panel panel-green">
+          <div class="panel text-center price-panel panel-warning">
             <div class="panel-heading">
-              <h4>RECOMENDADO</h4>
+              <h4>GOLD</h4>
             </div>
             <div class="panel-body">
               <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2) %> / mês</strong></p>
             </div>
             <ul class="list-group">
                 <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 300km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$20.000,00</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
@@ -252,16 +254,16 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 	         <div class="panel text-center price-panel panel-red">
 	            <div class="panel-heading">
-	              <h4>PLANO PRO</h4>
+	              <h4>VIP</h4>
 	            </div>
 	            <div class="panel-body">
 	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_pro, :precision => 2) %> / mês</strong></p>
 	            </div>
 	            <ul class="list-group">
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 500km ( 4 x )</li>
+	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
+	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$20.000,00</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
@@ -279,9 +281,9 @@
 		<% elsif (f.object.vei_tipo == 'Caminhões') %>
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-          <div class="panel text-center price-panel panel-green">
+          <div class="panel text-center price-panel panel-warning">
             <div class="panel-heading">
-              <h4>RECOMENDADO</h4>
+              <h4>GOLD</h4>
             </div>
             <div class="panel-body">
               <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2) %> / mês</strong></p>
@@ -307,7 +309,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 	         <div class="panel text-center price-panel panel-red">
 	            <div class="panel-heading">
-	              <h4>PLANO PRO</h4>
+	              <h4>VIP</h4>
 	            </div>
 	            <div class="panel-body">
 	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_pro, :precision => 2) %> / mês</strong></p>
@@ -315,7 +317,7 @@
 	            <ul class="list-group">
 		          <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 300km ( 4 x )</li>
+	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
@@ -334,9 +336,9 @@
 		<% elsif (f.object.vei_tipo == 'Nautica') %>
 
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-lg-offset-4">
-	          <div class="panel text-center price-panel panel-green">
+	          <div class="panel text-center price-panel panel-warning">
 	            <div class="panel-heading">
-	              <h4>RECOMENDADO</h4>
+	              <h4>GOLD</h4>
 	            </div>
 	            <div class="panel-body">
 	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2) %> / mês</strong></p>

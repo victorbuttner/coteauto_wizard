@@ -32,6 +32,7 @@ $.get('https://fipeapi.appspot.com/api/1/' + $('#orcamento_vei_tipo').val().toLo
 let dl1 = $('#orcamento_vei_marca');
 console.log("marcas" + JSON.stringify(data));
 $(dl1).find('option').remove();
+$(dl1).append('<option>', {id: 0 , value: 'selecione', text: 'selecione'})
 $.each(data, function(index, value) {
   $(dl1).append($('<option>', {
     id: value.id,
@@ -52,6 +53,8 @@ console.log(JSON.stringify(data))
   // populate #orcamento_vei_veiculo
   let dl2 = $('#orcamento_vei_veiculo');
   $(dl2).find('option').remove();
+  $(dl2).append('<option>', {id: 0 , value: 'selecione', text: 'selecione'})
+
   $.each(data, function(index, value) {
     $(dl2).append($('<option>', {
       id: value.id,
@@ -74,6 +77,7 @@ console.log(JSON.stringify(data))
   // populate #orcamento_vei_modelo_ano
   let dl3 = $('#orcamento_vei_modelo_ano');
   $(dl3).find('option').remove();
+  $(dl3).append('<option>', {id: 0 , value: 'selecione', text: 'selecione'})
   $.each(data, function(index, value) {
     $(dl3).append($('<option>', {
       id: value.key,

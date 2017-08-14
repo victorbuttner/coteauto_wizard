@@ -2,11 +2,12 @@
 <h3>Agora, fale um pouquinho sobre o seu veículo.</h3>
  
 <%= render layout: 'form'  do |f| %>
+
 <%= f.hidden_field :current_step , :value => "veicle_data" %>
 
   
   <div class="field">
-    Meu veículo é um :      <%= f.text_field :vei_tipo    %>
+    <%= f.hidden_field :vei_tipo    %>
   </div>
 
   <% if (f.object.vei_tipo == "Nautica" ) %>
@@ -29,7 +30,7 @@
     </div>
 
       <div class="field " id="cep">
-      cep:     <%= f.text_field :cli_cep , class: "form_input-text", placeholder: "999999999" , required: true%>
+      cep:     <%= f.text_field :cli_cep , class: "form_input-text", placeholder: "xxxxx-xxx" , required: true%>
     </div>
 
     <div class="field " id="nacionalidade">
@@ -60,17 +61,17 @@
     </div>
 
       <div class="field " id="cep">
-      cep:     <%= f.text_field :cli_cep , class: "form_input-text", placeholder: "999999999" , required: true%>
+      cep:     <%= f.text_field :cli_cep , class: "form_input-text", placeholder: "xxxxx-xxx" , required: true%>
     </div>
+      <% if f.object.vei_tipo == "Carros" %>
+          <div class="field " id="nacionalidade">
+            Meu carro é : <%= f.select :vei_nacionalidade, options_for_select([['Nacional'],['Importado']]), {}, {required: 'true', autofocus: 'true', class: 'minimal'}   %>
+          </div>
 
-    <div class="field " id="nacionalidade">
-      Meu carro é : <%= f.select :vei_nacionalidade, options_for_select([['Nacional'],['Importado']]), {}, {required: 'true', autofocus: 'true', class: 'minimal'}   %>
-    </div>
-
-    <div class="field " id="tipo_uso">
-      e seu uso é   <%= f.select :vei_tipo_uso, options_for_select([["Selecione"],["Particular"],["Uber"],["Taxi"],["veiclega"]]), {}, {required: 'true', autofocus: 'true', class: 'minimal '} %>
-    </div>
-
+          <div class="field " id="tipo_uso">
+            e seu uso é   <%= f.select :vei_tipo_uso, options_for_select([["Selecione"],["Particular"],["Aluguel"],["Transporte de Cargas"],["Comercial"]]), {}, {required: 'true', autofocus: 'true', class: 'minimal '} %>
+          </div>
+      <%end%>
   <%end%>
   
 <%end%>

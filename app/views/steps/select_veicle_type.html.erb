@@ -1,20 +1,25 @@
-<h4>Selecione o tipo de veículo.</h4>
+<h3>Selecione o tipo de veículo.</h3>
  
 <%= render layout: 'form'  do |f| %>
-       
+ 
+
+
+
+
+
 <div class="container ">
 <%= f.hidden_field :current_step , :value => 'select_veicle_type'%>
 
 <div class="btn-group btn-group-justified" data-toggle="buttons">
 
-	<div class="panel panel-primary col-sm-3">
+	<div class="panel panel-default col-sm-3">
     	<div class="panel-heading">
-    	<%= fa_icon "car 4x" %>
+        <%= image_tag '/images/sports-car.png' , class: 'image-responsive' %>
     	<h4>Seguro Carro</h4>
       
     	</div>
    		<div class="panel-body fixed-panel">
-      		 <p>Proteção completa contra roubo, colisão, incêndio, PT e terceiros para carros até 120 mil reais. Instalação de rastreador sem custo em alguns casos. Assitência 24hs em todo o território nacional.</p>
+      		 <p>Proteção completa contra roubo, colisão, incêndio, PT e terceiros para carros até 120 mil reais. Instalação de rastreador sem custo. Assitência 24hs em todo o território nacional.</p>
    		</div>
       <div class="panel-footer">
           <label class="btn btn-warning ">
@@ -23,9 +28,9 @@
       </div>
   	</div>
 
-  <div class="panel panel-primary col-sm-3">
+  <div class="panel panel-default col-sm-3">
       <div class="panel-heading">
-      <%= fa_icon "motorcycle 4x" %>
+        <%= image_tag '/images/motorbike.png' , class: 'image-responsive' %>
       <h4>Seguro Moto</h4>
       
       </div>
@@ -39,9 +44,9 @@
 
       </div>
     </div>
-	<div class="panel panel-primary col-sm-3 ">
+	<div class="panel panel-default col-sm-3 ">
     	<div class="panel-heading">
-    		<%= fa_icon "truck 4x" %>
+    		<%= image_tag '/images/truck.png' , class: 'image-responsive' %>
     		<h4>Seguro Caminhão</h4>
     	</div>
    		<div class="panel-body fixed-panel">
@@ -54,9 +59,9 @@
         </div>
   	</div>
 
-	<div class="panel  panel-primary col-sm-3">
+	<div class="panel  panel-default col-sm-3">
     	<div class="panel-heading">
-    		<%= fa_icon "ship 4x" %>
+    		<%= image_tag '/images/ocean-transportation.png' , class: 'image-responsive' %>
     		<h4> Seguro Nautica</h4>
     	</div>
    		<div class="panel-body fixed-panel">

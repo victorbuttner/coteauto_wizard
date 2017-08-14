@@ -14,9 +14,12 @@
 
 
   <%= yield f %>
-
+<div class="button" >
+<%= link_to 'voltar', previous_wizard_path  %>
+</div>
 <div class="button">
   <%= f.submit  "Próximo passo" , :class => 'btn btn-primary' %>
 </div>
+
 
 <%end%>

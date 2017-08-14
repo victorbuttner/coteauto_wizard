@@ -59,7 +59,7 @@ class Orcamento
 
   def set_seg_preco
     if(self.current_step == 'veicle_data')
-      seg_types = Seguro.all
+      seg_types = Seguro.where(tipo_veiculo: self.vei_tipo)
       p "Definindo valor inicial do seguro PARTE 1"
       seg_types.each do |seguro|
         p "veiculo #{self.vei_tipo}"
