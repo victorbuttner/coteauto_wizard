@@ -154,7 +154,7 @@ if ($('#orcamento_vei_tipo').val() != 'Nautica' && $('#orcamento_current_step').
 
   })
 
-    $('#orcamento_seguro_plan_pro').click(function()  {
+    $('#orcamento_seguro_plan_vip').click(function()  {
     console.log('checked')
     let plan_price = $('#orcamento_seguro_preco_pro').val()
 
