@@ -1,51 +1,55 @@
- <h3 >
-    Aeee! Estamos quase lá.
-    <br>
-    <bold>Conta aí um pouquinho mais sobre vc.</bold>
-  </h3>
 
 <%= render layout: 'form' do |f| %>
+<%= f.hidden_field :current_step , :value => "finish_profile" %>
 
-  <div class="field">
-  	Meu nome completo é :    <%= f.text_field :cli_name , class: "form_input-text" , placeholder: "nome", required: true %>
-  </div>
-  <div class="field">
-    Meu CPF é:     <%= f.text_field :cli_cpf , class: "form_input-text" , placeholder: "cpf", required: true%>
+<div class="row ">
+  <div class="col-sm-6" style="background-color:white">
+      <div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner clearfix"><div class="wpb_wrapper wt_wpb_wrapper clearfix">
+        <div class="wpb_single_image wpb_content_element vc_align_left  wpb_animate_when_almost_visible wpb_left-to-right vc_custom_1478020438959 wpb_start_animation">
+          
+          <figure class="wpb_wrapper vc_figure">
+            <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="191" height="300" src="http://coteauto.com.br/wp-content/uploads/2014/11/mascote-191x300.png" class="vc_single_image-img attachment-medium" alt="mascote" srcset="http://coteauto.com.br/wp-content/uploads/2014/11/mascote-191x300.png 191w, http://coteauto.com.br/wp-content/uploads/2014/11/mascote-651x1024.png 651w, http://coteauto.com.br/wp-content/uploads/2014/11/mascote.png 682w" sizes="(max-width: 191px) 100vw, 191px"></div>
+          </figure>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="col-sm-8 " >
+      <h3> VOCÊ SELECIONOU O PLANO: <%= f.object.seguro_plan %> </h3>
+          <h4> O valor do seu seguro: </h4>
+     <h2> R$ <%= f.object.seguro_preco_final %> / mês</h2>
+     <br>
+     Dia para pagamento: <br>
+     <%= f.select :data_pgto , options_for_select([["10"],["15"],["20"]]), {}, {required: 'true', autofocus: 'true'} %>
+
+    </div>
+    
+
+  </div> 
+  <div class="col-sm-6">
+    
+    <ul class="" style="list-style-type: none;">
+      <li ><i class="fa fa-check-circle-o" aria-hidden="true"></i>Carros acima de R$ 31000,00 , Motos acima de R$ 8000,00 e todos os Caminhões e Nautica levam rastreador  </li>
+      <li ><i class="fa fa-check-circle-o" aria-hidden="true"></i>O valor mensal será cobrado via boleto, você começa a pagar na data selecionada no Mês seguinte  </li>
+
+      <li ><i class="fa fa-check-circle-o" aria-hidden="true"></i> Cota de participação (franquia) varia entre 4% e 10% do valor do veículo, nos primeiros 90 dias é dobrado o valor. Informações consulta o regulamento. </li>
+
+      <li ><i class="fa fa-check-circle-o" aria-hidden="true"></i>Não cobramos taxa de cancelamento </li>
+     
+      <li >    
+      <%= image_tag '/images/pagseguro.jpg' , class: 'image-responsive' %>
+
+    </li>
+    <li >A CoteAuto é uma plataforma de comparação e venda de proteção veícular online. Trabalhamos com as melhores empresas do mercado  </li>
+    <li ><i class="fa fa-whatsapp fa-5" aria-hidden="true" style="font-size:20px"></i>21 96486-0188  </li>
+
+    </ul>
   </div>
 
-  <div class="field">
-    Eu nasci no :    <%= f.text_field :cli_pais , class: "form_input-text" , placeholder: "Brasil", required: true%>
-  </div>
-
+</div>
   
-  <div class="field">
-    sexo:     <%= f.select :cli_sexo, options_for_select([['selecione'],['Masculino'],['Feminino']]), {}, {required: 'true', autofocus: 'true', class: 'minimal '} %>
-  </div>
 
-  <div class="field">
-    Minha casa fica no CEP:   <%= f.text_field :cli_cep , placeholder: '00000-000'  , class: "form_input-text" , required: true%>
-  </div>
-
-  <div class="field">
-    Moro na :     <%= f.text_field :cli_end , class: "form_input-text" , required: true%>
-  </div>
-
-  <div class="field">
-    número :    <%= f.number_field :cli_end_number , class: "form_input-text" , required: true%>
-  </div>
-
-  <div class="field">
-    complemento:    <%= f.text_field :cli_end_compl , class: "form_input-text" %>
-  </div>
-
-  <div class="field">
-    Bairro:   <%= f.text_field :cli_end_bairro , class: "form_input-text" , required: true%>
-  </div>
-  <div class="field">
-        <%= f.text_field :cli_end_cidade, :readonly => true , class: "form_input-text" , required: true%>
-  </div>
-
-  <br>
 <%end%>
 
 
+ 

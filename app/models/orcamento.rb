@@ -26,7 +26,7 @@ class Orcamento
   field :seguro_preco_default, type:Float
   field :seguro_preco_silver, type:Float
   field :seguro_preco_pro, type:Float
-
+  field :data_pgto, type: String
   field :seguro_preco_final, type:Float
   field :seg_car_reboque_300, type:Boolean
   field :seg_car_reboque_500, type:Boolean

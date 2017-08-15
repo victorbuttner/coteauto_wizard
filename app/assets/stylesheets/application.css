@@ -28,3 +28,7 @@ main {
 .fixed-panel {
  height: 250px;
 }
+
+.row {
+	padding-top: 20px;
+}

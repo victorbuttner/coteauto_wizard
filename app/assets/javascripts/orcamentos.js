@@ -130,20 +130,38 @@ $('#nacionalidade').on('click',(function()  {
   }))
 }
 
-if ($('#orcamento_vei_tipo').val() != 'Nautica'){
+if ($('#orcamento_vei_tipo').val() != 'Nautica' && $('#orcamento_current_step').val() == 'veicle_data'){
   console.log('if')
   fipe();
-} if ($('#orcamento_vei_tipo').val() == 'Nautica') {
+} if ($('#orcamento_vei_tipo').val() == 'Nautica' && $('#orcamento_current_step').val() == 'veicle_data') {
   console.log('else')
   nautica();
 };
 //atualiza valor
   let dl5 = $('#orcamento_seguro_preco_final');
-  let dl6 = $('#orcamento_seguro_preco') ;
-  $(dl5).val($(dl6).val());
-  let dl7 = $('#seguro_final');
+  $('#orcamento_seguro_plan_bsico').click(function()  {
+    console.log('checked')
+    let plan_price = $('#orcamento_seguro_preco_silver').val()
 
-  parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+  parseFloat($(dl5).val(plan_price)); 
+
+  })
+  $('#orcamento_seguro_plan_default').click(function()  {
+    console.log('checked')
+    let plan_price = $('#orcamento_seguro_preco_default').val()
+
+  parseFloat($(dl5).val(plan_price)); 
+
+  })
+
+    $('#orcamento_seguro_plan_pro').click(function()  {
+    console.log('checked')
+    let plan_price = $('#orcamento_seguro_preco_pro').val()
+
+  parseFloat($(dl5).val(plan_price)); 
+
+  })
+  
 
 //update info on seguros carros
 

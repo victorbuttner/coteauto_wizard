@@ -77,6 +77,6 @@ class OrcamentosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def orcamento_params
-    params.require(:orcamento).permit(:current_step, :cli_name, :cli_email, :cli_tel, :cli_cpf, :cli_pais, :cli_trab, :cli_salario, :cli_sexo, :cli_cep, :cli_end, :cli_end_number, :cli_end_compl, :cli_end_cidade, :cli_end_bairro, :vei_tipo, :vei_marca, :vei_veiculo, :vei_modelo_ano, :vei_preco, :vei_tipo_uso, :vei_placa,:seguro_preco,:seguro_preco_final, :seg_car_reboque_300, :seg_car_reboque_500 , :seg_car_terceiros_50k , :seg_car_vidros , :seg_car_reserva_7d , :seg_car_reserva14, :vei_nacionalidade)
+    params.require(:orcamento).permit(:data_pgto,:seguro_plan, :seguro_preco_default, :seguro_preco_silver, :seguro_preco_pro,:current_step, :cli_name, :cli_email, :cli_tel, :cli_cpf, :cli_pais, :cli_trab, :cli_salario, :cli_sexo, :cli_cep, :cli_end, :cli_end_number, :cli_end_compl, :cli_end_cidade, :cli_end_bairro, :vei_tipo, :vei_marca, :vei_veiculo, :vei_modelo_ano, :vei_preco, :vei_tipo_uso, :vei_placa,:seguro_preco,:seguro_preco_final, :seg_car_reboque_300, :seg_car_reboque_500 , :seg_car_terceiros_50k , :seg_car_vidros , :seg_car_reserva_7d , :seg_car_reserva14, :vei_nacionalidade)
     end 
 end
