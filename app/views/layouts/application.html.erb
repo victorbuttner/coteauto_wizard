@@ -9,7 +9,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body data-no-turbolink="true">
     <header>
 
         <div class="container-fluid">
@@ -21,10 +21,11 @@
     <main role="main">
       <div class="container" >
        <%= render 'layouts/messages' %>
-<div class="row text-center" >
+        <div class="row text-center" >
           
            <%= yield %>
-</div>
+           
+        </div>
 
       </div>
     </main>

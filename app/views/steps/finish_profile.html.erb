@@ -1,6 +1,7 @@
 
 <%= render layout: 'form' do |f| %>
 <%= f.hidden_field :current_step , :value => "finish_profile" %>
+<%= f.hidden_field :seguro_preco_final %>
 
 <div class="row ">
   <div class="col-sm-6" style="background-color:white">
@@ -17,19 +18,66 @@
     <div class="col-sm-8 " >
       <h3> VOCÊ SELECIONOU O PLANO: <%= f.object.seguro_plan %> </h3>
           <h4> O valor do seu seguro: </h4>
-     <h2> R$ <%= f.object.seguro_preco_final %> / mês</h2>
+     <h2> R$ <span id="seguro_final"> <%= number_with_precision(f.object.seguro_preco_final, :precision => 2).gsub('.',',')  %> </span>/ mês</h2>
+
      <br>
      Dia para pagamento: <br>
      <%= f.select :data_pgto , options_for_select([["10"],["15"],["20"]]), {}, {required: 'true', autofocus: 'true'} %>
+     <br>
+      <% if f.object.vei_tipo == 'Carros' %>
+      <div class="row" id="adicional_carros" >
+
+
+
+      <h3> Vamos personalizar um pouco? </h3>
+      <h4> Serviços adicionais </h4>
+      <li class="">
+            Desc. 70% - Vidros / Faróis / Lanternas / Retrovisor <%= f.check_box :seg_car_vidros %>
+        </li>
+        <li class="">
+            Carro reserva 7 dias <%= f.check_box :seg_car_reserva_7d %>
+            Carro reserva 14 dias <%= f.check_box :seg_car_reserva14  %>
+        </li>
+        <li class="">
+          Cobertura para terceiros R$ 50.000,00 <%= f.check_box :seg_car_terceiros_50k %>
+        </li>
 
     </div>
-    
+        <% elsif f.object.vei_tipo == 'Caminhões' %>
+      <div class="row" id="adicional_caminhoes" >
 
-  </div> 
+      <div class="form-group">
+
+
+      <h3> Vamos personalizar um pouco? </h3>
+      <h4> Serviços adicionais </h4>
+        <li class="">
+          Cobertura para terceiros R$ 50.000,00 <%= f.check_box :seg_cam_terceiros_50k %>
+        </li>
+        <li class="">
+          Cobertura para terceiros R$ 100.000,00 <%= f.check_box :seg_cam_terceiros_100k %>
+        </li>
+        <li class="">
+          Cobertura para terceiros R$ 200.000,00 <%= f.check_box :seg_cam_terceiros_200k %>
+        </li>
+        <li class="">
+          Assistência 300 km<%= f.check_box :seg_cam_reboque_300 %>
+        </li>
+       </div>
+    </div>
+    <%end%>
+    </div>
+   
+
+    </div> 
+
+
+
+
   <div class="col-sm-6">
     
     <ul class="" style="list-style-type: none;">
-      <li ><i class="fa fa-check-circle-o" aria-hidden="true"></i>Carros acima de R$ 31000,00 , Motos acima de R$ 8000,00 e todos os Caminhões e Nautica levam rastreador  </li>
+      <li ><i class="fa fa-check-circle-o" aria-hidden="true"></i>Carros acima de R$ 31.000,00 , Motos acima de R$ 8.000,00 e todos os Caminhões e Nautica levam rastreador  </li>
       <li ><i class="fa fa-check-circle-o" aria-hidden="true"></i>O valor mensal será cobrado via boleto, você começa a pagar na data selecionada no Mês seguinte  </li>
 
       <li ><i class="fa fa-check-circle-o" aria-hidden="true"></i> Cota de participação (franquia) varia entre 4% e 10% do valor do veículo, nos primeiros 90 dias é dobrado o valor. Informações consulta o regulamento. </li>
@@ -46,10 +94,16 @@
     </ul>
   </div>
 
-</div>
-  
+
+
+
 
 <%end%>
+
+
+
+</div>
+
 
 
  

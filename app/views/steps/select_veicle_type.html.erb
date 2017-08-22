@@ -1,10 +1,18 @@
 <h3>Selecione o tipo de veículo.</h3>
  
-<%= render layout: 'form'  do |f| %>
- 
+<%= form_for @orcamento, :url => wizard_path do |f| %>
 
+  <% if @orcamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@orcamento.errors.count, "error") %> prohibited this orcamento from being saved:</h2>
 
-
+      <ul>
+      <% @orcamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> 
 
 
 <div class="container ">
@@ -22,9 +30,12 @@
       		 <p>Proteção completa contra roubo, colisão, incêndio, PT e terceiros para carros até 120 mil reais. Instalação de rastreador sem custo. Assitência 24hs em todo o território nacional.</p>
    		</div>
       <div class="panel-footer">
-          <label class="btn btn-warning ">
-            <%= f.radio_button  :vei_tipo,  "Carros", class: 'hidden' %> Selecione
+          <label class="btn btn-warning " required>
+            Selecione
+            <%= f.submit  'Selecione' , name: 'orcamento[vei_tipo]' , value: 'Carros' , class: 'hidden' %>
+
             </label>
+            
       </div>
   	</div>
 
@@ -37,10 +48,13 @@
       <div class="panel-body fixed-panel">
         <p>Proteção completa contra roubo, colisão, incêndio, PT e terceiros para motos até 1000 cilindradas. Instalação de rastreador sem custo adicional. Assitência 24hs em todo o território nacional.</p>
       </div>
+
       <div class="panel-footer">
-       <label class="btn btn-warning ">
-            <%= f.radio_button  :vei_tipo,  "Motos", class: 'hidden' %> Selecione
-        </label>
+          <label class="btn btn-warning ">
+            Selecione
+            <%= f.submit  'Selecione' , name: 'orcamento[vei_tipo]' , value: 'Motos' , class: 'hidden' %>
+        </label>      
+
 
       </div>
     </div>
@@ -54,7 +68,9 @@
       </div>        
       <div class="panel-footer">
        <label class="btn btn-warning ">
-            <%= f.radio_button  :vei_tipo,  "Caminhões", class: 'hidden' %> Selecione
+            Selecione
+            <%= f.submit  'Selecione' , name: 'orcamento[vei_tipo]' , value: 'Caminhões' , class: 'hidden' %>
+
         </label>   		
         </div>
   	</div>
@@ -69,7 +85,9 @@
       </div>
       <div class="panel-footer">
        <label class="btn btn-warning ">
-            <%= f.radio_button  :vei_tipo,  "Nautica", class: 'hidden' %> Selecione
+            Selecione
+            <%= f.submit  'Selecione' , name: 'orcamento[vei_tipo]' , value: 'Nautica' , class: 'hidden' %>
+
         </label> 
    		</div>
   	</div>
@@ -79,6 +97,8 @@
 
 
 
-
+<div class="button" >
+<%= link_to 'voltar', root_path  %>
+</div>
 
 <%end%>

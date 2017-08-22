@@ -5,47 +5,64 @@
 		bora deixar o seguro com a sua cara?</h2>
 
 		<%= render layout: 'form' do |f| %>
-<%= f.hidden_field :current_step , :value => "select_seg" %>
+		<%= f.hidden_field :current_step , :value => "select_seg" %>
 
-		<h3>Seu carro está avaliado em R$ <span class ="destaque" ><%= number_with_precision(f.object.vei_preco, :precision => 2)  %> </span> </h3>
+		<h3>Seu carro está avaliado em R$ <span class ="destaque" > <%= number_with_precision(f.object.vei_preco, :precision => 2).gsub('.',',')  %> </span> </h3>
 	</div>
 			
 	
 	<div class="row text-center"> 
 		<h3>A Melhor Cotação Ficou na </h3> 
-		<%= image_tag('/images/seguro.png') %>
-		<h4>Maior e mais completa associação do Brasil<br>
-			Escolha as coberturas iniciais e continue personalizando sua proteção </h4>
+		<%= image_tag('/images/seguro.png') %><br><br>
+		<h3>Maior e mais completa associação do Brasil<br>
+			Escolha as coberturas iniciais e continue personalizando sua proteção </h3>
 	</div>
 <br>
 
 	<div  class="row text-center">
 		
-		<% if (f.object.vei_tipo == 'Carros' && f.object.vei_nacionalidade == 'Nacional') %>
+		<% if (f.object.vei_tipo == 'Carros') %>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div class="panel text-center price-panel panel-blue">
             <div class="panel-heading">
               <h4>BÁSICO</h4>
             </div>
             <div class="panel-body">
-              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_silver, :precision => 2) %> / mês</strong></p>
+              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_silver, :precision => 2).gsub('.',',') %> / mês</strong></p>
             </div>
             <ul class="list-group">
-              <li class="list-group-item"><i class="fa fa-check text-success"></i> Roubo, Furto, Incêndio</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Roubo, Furto, Incêndio</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 100Km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 30.000,00</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Clube de Vantagens</li>
+              <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Desc. 70% - Vidros, Faróis, Lanternas e Retrovisor</li>
+              <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Carro Reserva</li>
 
-            </ul>
+            <li class="list-group-item"> 
+            <details>
+	  				<summary>Mais Cobertura Exclusiva para esse plano</summary>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Fenômenos da Natureza</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Residencial - Chaveiro/Eletrecista/Encanador</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Pet</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Chaveiro</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Guarda de Veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transmissão Mensagens Urgentes</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Táxi na Região de Domicilio</li>
+	  		    </details>
+	  		    </li>
+	  		 </ul>
             <div class="panel-footer">
 				<label class="btn btn-lg btn-block btn-primary">
-					<%= f.radio_button  :seguro_plan,  "BÁSICO", class: 'hidden' %> Selecione
+					<%= f.radio_button  :seguro_plan,  "BÁSICO", {required: true, class: '' , style: 'opacity: 0;' } %> Selecione
 				</label>            
 			</div>
           </div>
@@ -64,19 +81,36 @@
               <h4>GOLD</h4>
             </div>
             <div class="panel-body">
-              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2) %> / mês</strong></p>
+              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2).gsub('.',',') %> / mês</strong></p>
             </div>
             <ul class="list-group">
-              <li class="list-group-item"><i class="fa fa-check text-success"></i> Roubo, Furto, Incêndio</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Roubo, Furto, Incêndio</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 100Km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 30.000,00</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Clube de Vantagens</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Desc. 70% - Vidros, Faróis, Lanternas e Retrovisor</li>
+              <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Carro Reserva</li>
+              <li class="list-group-item"> 
+            	<details>
+	  				<summary>Mais Cobertura Exclusiva para esse plano</summary>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Fenômenos da Natureza</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Residencial - Chaveiro/Eletrecista/Encanador</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Pet</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Chaveiro</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Guarda de Veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transmissão Mensagens Urgentes</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Táxi na Região de Domicilio</li>
+	  		    </details>
+	  		    </li>
             </ul>
             <div class="panel-footer">
 				<label class="btn btn-lg btn-block btn-warning">
@@ -92,19 +126,36 @@
 	              <h4>VIP</h4>
 	            </div>
 	            <div class="panel-body">
-	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_pro, :precision => 2) %> / mês</strong></p>
+	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_pro, :precision => 2).gsub('.',',') %> / mês</strong></p>
 	            </div>
 	            <ul class="list-group">
-	              <li class="list-group-item"><i class="fa fa-check text-success"></i> Roubo, Furto, Incêndio</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Clube de Vantagens</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Roubo, Furto, Incêndio</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 100Km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 30.000,00</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Desc. 70% - Vidros, Faróis, Lanternas e Retrovisor</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Carro Reserva</li>
+	          <li class="list-group-item"> 
+	           <details>
+	  				<summary>Mais Cobertura Exclusiva para esse plano</summary>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Fenômenos da Natureza</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Residencial - Chaveiro/Eletrecista/Encanador</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Pet</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Chaveiro</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Guarda de Veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transmissão Mensagens Urgentes</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Táxi na Região de Domicilio</li>
+	  		    </details>
+	  		    </li>
 	            </ul>
 	            <div class="panel-footer">
 					<label class="btn btn-lg btn-block btn-danger">
@@ -115,100 +166,6 @@
 
 		</div>
 
-		<% elsif  (f.object.vei_tipo == 'Carros' && f.object.vei_nacionalidade == 'Importado') %>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-          <div class="panel text-center price-panel panel-blue">
-            <div class="panel-heading">
-              <h4>BÁSICO</h4>
-            </div>
-            <div class="panel-body">
-              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_silver, :precision => 2) %> / mês</strong></p>
-            </div>
-            <ul class="list-group">
-              <li class="list-group-item"><i class="fa fa-check text-success"></i> Roubo, Furto, Incêndio</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Clube de Vantagens</li>
-
-            </ul>
-            <div class="panel-footer">
-				<label class="btn btn-lg btn-block btn-primary">
-					<%= f.radio_button  :seguro_plan,  "BÁSICO", class: 'hidden' %> Selecione
-				</label>            
-			</div>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-          <div class="panel text-center price-panel panel-warning">
-          	 <div class="cnrflash">
-                    <div class="cnrflash-inner">
-                        <span class="cnrflash-label">MAIS
-                            <br>
-                            VENDIDO</span>
-                    </div>
-            </div>
-            <div class="panel-heading">
-              <h4>GOLD</h4>
-            </div>
-            <div class="panel-body">
-              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2) %> / mês</strong></p>
-            </div>
-            <ul class="list-group">
-              <li class="list-group-item"><i class="fa fa-check text-success"></i> Roubo, Furto, Incêndio</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Clube de Vantagens</li>
-            </ul>
-            <div class="panel-footer">
-				<label class="btn btn-lg btn-block btn-warning">
-					<%= f.radio_button  :seguro_plan,  "GOLD", class: 'hidden' %> Selecione
-				</label>            
-			</div>
-        </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-	         <div class="panel text-center price-panel panel-red">
-	            <div class="panel-heading">
-	              <h4>VIP</h4>
-	            </div>
-	            <div class="panel-body">
-	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_pro, :precision => 2) %> / mês</strong></p>
-	            </div>
-	            <ul class="list-group">
-	              <li class="list-group-item"><i class="fa fa-check text-success"></i> Roubo, Furto, Incêndio</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Clube de Vantagens</li>
-	            </ul>
-	            <div class="panel-footer">
-					<label class="btn btn-lg btn-block btn-danger">
-						<%= f.radio_button  :seguro_plan,  "VIP", class: 'hidden' %> Selecione
-					</label>            
-				</div>
-    		</div>
-
-		</div>
 
 		<% elsif (f.object.vei_tipo == 'Motos') %>
 
@@ -218,22 +175,37 @@
               <h4>BÁSICO</h4>
             </div>
             <div class="panel-body">
-              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_silver, :precision => 2) %> / mês</strong></p>
+              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_silver, :precision => 2).gsub('.',',') %> / mês</strong></p>
             </div>
             <ul class="list-group">
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$20.000,00</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Roubo, Furto e Incêndio</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 100Km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 20.000,00</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Só Perda Total</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Qualquer Batida</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Clube de Vantagens</li>
-
+	            <li class="list-group-item"> 
+	            <details>
+	  				<summary>Mais Cobertura Exclusiva para esse plano</summary>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Fenômenos da Natureza</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Residencial - Chaveiro/Eletrecista/Encanador</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Pet</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Chaveiro</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Guarda de Veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transmissão Mensagens Urgentes</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Táxi na Região de Domicilio</li>
+	  		    </details>
+	  		    </li>
             </ul>
             <div class="panel-footer">
 				<label class="btn btn-lg btn-block btn-primary">
-					<%= f.radio_button  :seguro_plan,  "BÁSICO", class: 'hidden' %> Selecione
+					<%= f.radio_button  :seguro_plan,  "BÁSICO", {required: true, class: '' , style: 'opacity: 0;' } %> Selecione
 				</label>            
 			</div>
           </div>
@@ -252,17 +224,33 @@
               <h4>GOLD</h4>
             </div>
             <div class="panel-body">
-              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2) %> / mês</strong></p>
+              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2).gsub('.',',') %> / mês</strong></p>
             </div>
             <ul class="list-group">
-                <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$20.000,00</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Roubo, Furto e Incêndio</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 300Km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 20.000,00</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Só Perda Total</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Qualquer Batida</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Clube de Vantagens</li>
+            <li class="list-group-item"> 
+            <details>
+	  				<summary>Mais Cobertura Exclusiva para esse plano</summary>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Fenômenos da Natureza</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Residencial - Chaveiro/Eletrecista/Encanador</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Pet</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Chaveiro</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Guarda de Veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transmissão Mensagens Urgentes</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Táxi na Região de Domicilio</li>
+	  		    </details>
+	  		    </li>
             </ul>
             <div class="panel-footer">
 				<label class="btn btn-lg btn-block btn-warning">
@@ -278,17 +266,33 @@
 	              <h4>VIP</h4>
 	            </div>
 	            <div class="panel-body">
-	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_pro, :precision => 2) %> / mês</strong></p>
+	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_pro, :precision => 2).gsub('.',',') %> / mês</strong></p>
 	            </div>
 	            <ul class="list-group">
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$20.000,00</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Clube de Vantagens</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Roubo, Furto e Incêndio</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 500Km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 20.000,00</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Só Perda Total</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Qualquer Batida</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
+            <li class="list-group-item"> 
+            <details>
+	  				<summary>Mais Cobertura Exclusiva para esse plano</summary>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Fenômenos da Natureza</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Residencial - Chaveiro/Eletrecista/Encanador</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Pet</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Chaveiro</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Guarda de Veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transmissão Mensagens Urgentes</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Táxi na Região de Domicilio</li>
+	  		    </details>
+	  		    </li>
 	            </ul>
 	            <div class="panel-footer">
 					<label class="btn btn-lg btn-block btn-danger">
@@ -300,8 +304,53 @@
 		</div>
 
 		<% elsif (f.object.vei_tipo == 'Caminhões') %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <div class="panel text-center price-panel panel-blue">
+            <div class="panel-heading">
+              <h4>BÁSICO</h4>
+            </div>
+            <div class="panel-body">
+              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_silver, :precision => 2).gsub('.',',') %> / mês</strong></p>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Roubo, Furto e Incêndio</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 20.000,00</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Só Perda Total</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Qualquer Batida</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Rastreador</li>
+              <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Cobertura de Terceiros 50.000,00</li>
+              <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Desc. 70% - Vidros, Faróis, Lanternas e Retrovisor</li>
 
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-lg-offset-4">
+	            <li class="list-group-item"> 
+	            <details>
+	  				<summary>Mais Cobertura Exclusiva para esse plano</summary>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Fenômenos da Natureza</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Residencial - Chaveiro/Eletrecista/Encanador</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Pet</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Chaveiro</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Guarda de Veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transmissão Mensagens Urgentes</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Táxi na Região de Domicilio</li>
+	  		    </details>
+	  		    </li>
+            </ul>
+            <div class="panel-footer">
+				<label class="btn btn-lg btn-block btn-primary">
+					<%= f.radio_button  :seguro_plan,  "BÁSICO", {required: true, class: '' , style: 'opacity: 0;' } %> Selecione
+				</label>            
+			</div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 ">
           <div class="panel text-center price-panel panel-warning">
           	 <div class="cnrflash">
                     <div class="cnrflash-inner">
@@ -314,17 +363,36 @@
               <h4>GOLD</h4>
             </div>
             <div class="panel-body">
-              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2) %> / mês</strong></p>
+              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2).gsub('.',',') %> / mês</strong></p>
             </div>
             <ul class="list-group">
-	          <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200km ( 4 x )</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Roubo, Furto e Incêndio</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 20.000,00</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Só Perda Total</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Qualquer Batida</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Clube de Vantagens</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Rastreador</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura de Terceiros 50.000,00</li>
+              <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Desc. 70% - Vidros, Faróis, Lanternas e Retrovisor</li>
+          <li class="list-group-item"> 
+            <details>
+	  				<summary>Mais Cobertura Exclusiva para esse plano</summary>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Fenômenos da Natureza</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Residencial - Chaveiro/Eletrecista/Encanador</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Pet</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Chaveiro</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Guarda de Veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transmissão Mensagens Urgentes</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Táxi na Região de Domicilio</li>
+	  		    </details>
+	  		    </li>
             </ul>
             <div class="panel-footer">
 				<label class="btn btn-lg btn-block btn-warning">
@@ -340,17 +408,36 @@
 	              <h4>VIP</h4>
 	            </div>
 	            <div class="panel-body">
-	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_pro, :precision => 2) %> / mês</strong></p>
+	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_pro, :precision => 2).gsub('.',',') %> / mês</strong></p>
 	            </div>
 	            <ul class="list-group">
-		          <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Perca Total</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
+	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Roubo, Furto e Incêndio</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 200Km ( 4 x )</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Algamento</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência Residencial</li>
+	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 20.000,00</li>
+	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Só Perda Total</li>
+	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Qualquer Batida</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Clube de Vantagens</li>
+	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Rastreador</li>
+	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura de Terceiros 50.000,00</li>
+	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Desc. 70% - Vidros, Faróis, Lanternas e Retrovisor</li>
+	    				<li class="list-group-item"> 
+					  <details>
+	  				<summary>Mais Cobertura Exclusiva para esse plano</summary>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Fenômenos da Natureza</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Residencial - Chaveiro/Eletrecista/Encanador</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Pet</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Chaveiro</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Guarda de Veículo</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Transmissão Mensagens Urgentes</li>
+						<li class="list-group-item"><i class="fa facheck text-success"></i>Táxi na Região de Domicilio</li>
+	  		    </details>
+	  		    </li>
 	            </ul>
 	            <div class="panel-footer">
 					<label class="btn btn-lg btn-block btn-danger">
@@ -369,7 +456,7 @@
 	              <h4>GOLD</h4>
 	            </div>
 	            <div class="panel-body">
-	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2) %> / mês</strong></p>
+	              <p class="lead big-lead"><strong>R$ <%= number_with_precision(f.object.seguro_preco_default, :precision => 2).gsub('.',',') %> / mês</strong></p>
 	            </div>
 	            <ul class="list-group">
 		          <li class="list-group-item"><i class="fa fa-check  text-success"></i> Incêdio / Abalroamento / Perda Total</li>
@@ -394,6 +481,9 @@
         	</div>
 
 
+
+
+			</div>
 		<%end%>
 
 					<%= f.hidden_field :seguro_preco_default %>

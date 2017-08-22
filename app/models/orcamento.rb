@@ -50,12 +50,16 @@ class Orcamento
 
 
   
-  after_update :set_seg_preco   
+  after_update :set_seg_preco,  :update_seg_preco 
   #validates_presence_of :vei_tipo, if: :select_veicle_type?
 
 
 
+  def update_seg_preco
+    if(self.current_step == 'finish_profile')
+    end
 
+  end
 
   def set_seg_preco
     if(self.current_step == 'veicle_data')
