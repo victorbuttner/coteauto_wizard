@@ -139,7 +139,7 @@ if ($('#orcamento_vei_tipo').val() != 'Nautica' && $('#orcamento_current_step').
 
 
 
-  if ($('#orcamento_current_step').val() == 'finish_profile'){
+  if ($('#orcamento_current_step').val() == 'select_seg'){
 //atualiza valor
   let dl5 = $('#orcamento_seguro_preco_final');
 
@@ -165,10 +165,16 @@ if ($('#orcamento_vei_tipo').val() != 'Nautica' && $('#orcamento_current_step').
   parseFloat($(dl5).val(plan_price)); 
 
   })
-  
-  $('#seguro_final').text($(dl5).val())  
-//update info on seguros carros
+    $('#seguro_final').text($(dl5).val())  
 
+
+}
+
+//update info on seguros carros
+if ($('#orcamento_current_step').val() == 'finish_profile'){
+let dl5 = $('#orcamento_seguro_preco_final');
+ 
+$('#seguro_final').text($(dl5).val())  
 
 
 $('#orcamento_seg_car_terceiros_50k').click(function() {
