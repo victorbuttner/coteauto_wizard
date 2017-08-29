@@ -1,4 +1,13 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
+//reload na pagina ao voltar
+
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted || ( typeof window.performance != "undefined" && window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    // Handle page restore.
+    window.location.reload();
+  }
+});
 
 
 //esconde elementos:
@@ -126,12 +135,24 @@ function nautica() {
   }))
 $('#nacionalidade').on('click',(function()  {
   $('#tipo_uso').fadeIn();
+  
   }))
 }
+
+
+
 
 if ($('#orcamento_vei_tipo').val() != 'Nautica' && $('#orcamento_current_step').val() == 'veicle_data'){
   console.log('if')
   fipe();
+  $("form").submit(function(evt){
+    if($('#orcamento_vei_tipo').val() == 'Carros' && parseInt($('#orcamento_vei_modelo_ano').val().replace( /[^\d.]/g, '' )) <= 1997 ){
+      alert("Seu veículo não está coberto por nossa equipe! ")
+      evt.preventDefault();
+      window.history.back();
+
+    }
+});
 } if ($('#orcamento_vei_tipo').val() == 'Nautica' && $('#orcamento_current_step').val() == 'veicle_data') {
   console.log('else')
   nautica();
@@ -139,7 +160,11 @@ if ($('#orcamento_vei_tipo').val() != 'Nautica' && $('#orcamento_current_step').
 
 
 
+
+
+
   if ($('#orcamento_current_step').val() == 'select_seg'){
+
 //atualiza valor
   let dl5 = $('#orcamento_seguro_preco_final');
 
@@ -172,19 +197,26 @@ if ($('#orcamento_vei_tipo').val() != 'Nautica' && $('#orcamento_current_step').
 
 //update info on seguros carros
 if ($('#orcamento_current_step').val() == 'finish_profile'){
+var numberFormat = new Intl.NumberFormat('es-ES', {
+
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2});
+
 let dl5 = $('#orcamento_seguro_preco_final');
- 
-$('#seguro_final').text($(dl5).val())  
+console.log($(dl5).val())
+var formatted =  numberFormat.format($(dl5).val())
+console.log(formatted);
+$('#seguro_final').text(formatted)  
 
 
 $('#orcamento_seg_car_terceiros_50k').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 2)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 2)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() )))
     }
 
   });
@@ -192,11 +224,11 @@ $('#orcamento_seg_car_terceiros_50k').click(function() {
 $('#orcamento_seg_car_vidros').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 10)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 10)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
     }
 
   });
@@ -204,24 +236,24 @@ $('#orcamento_seg_car_vidros').click(function() {
 $('#orcamento_seg_car_reserva_7d').click(function() {
    if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 10)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val())  - 10)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
     }
 
   });
 
 $('#orcamento_seg_car_reserva14').click(function() {
   if($(this).is(':checked')){
-    $(dl5).val(parseFloat($(dl5).val())  + 14)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    $(dl5).val(parseFloat($(dl5).val())  + 20)
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
 
   }else{
     console.log('7d deselect')
-    $(dl5).val(parseFloat($(dl5).val())  - 14)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    $(dl5).val(parseFloat($(dl5).val())  - 20)
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
     }
 
   });
@@ -339,11 +371,11 @@ $('#orcamento_seg_cam_reboque_300').click(function() {
   if($(this).is(':checked')){
     //$('#seguro_final').val($('#seguro_final').val() + 26.89)
     $(dl5).val(parseFloat($(dl5).val())  + 26.89)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2);
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 26.89)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2);  
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
     }
 
   });
@@ -352,33 +384,33 @@ $('#orcamento_seg_cam_reboque_300').click(function() {
 $('#orcamento_seg_cam_terceiros_50k').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 77.50)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 77.50)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
     }
 
   });
 $('#orcamento_seg_cam_terceiros_100k').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 89.33)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 89.33)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
     }
 
   });
 $('#orcamento_seg_cam_terceiros_200k').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 108.19)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 108.19)
-    parseFloat($('#seguro_final').text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
     }
 
   });
@@ -386,22 +418,32 @@ $('#orcamento_seg_cam_terceiros_200k').click(function() {
 $('#orcamento_seg_cam_vidros').click(function() {
   if($(this).is(':checked')){
     $(dl5).val(parseFloat($(dl5).val())  + 30)
-    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
 
   }else{
     $(dl5).val(parseFloat($(dl5).val()) - 30)
-    parseFloat($(dl7).text($(dl5).val() )).toFixed(2); 
+    parseFloat($('#seguro_final').text(numberFormat.format($(dl5).val() ))); 
     }
 
   });
 
 }
 
-
-
-
-
-
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+      console.log(reload)
+       localStorage.removeItem( 'firstLoad' );
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+})();
 
 
 

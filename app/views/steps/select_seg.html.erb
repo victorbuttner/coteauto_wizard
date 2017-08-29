@@ -1,13 +1,54 @@
-<div class="row" >
+<%= form_for @orcamento, :url => wizard_path do |f| %>
 
+  <% if @orcamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@orcamento.errors.count, "error") %> prohibited this orcamento from being saved:</h2>
+
+      <ul>
+      <% @orcamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>		
+
+<% if(f.object.vei_tipo == 'Carros' && f.object.vei_nacionalidade == 'Nacional' && f.object.vei_modelo_ano.to_i <= 1997 ) %>
+	
+	<div class="row">
+	  <div class="col-md-2"></div>
+	    <div class="col-md-8">
+	      <div class="panel panel-danger">
+	        <div class="panel-heading">
+	          <h3 class="text-center">
+	          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Oops:
+	          <small>Seu veículo não é coberto pelo nosso plano !</small>
+	          </h3>
+	        </div>
+	        <div class="panel-body">
+	          <p>Seu veículo não é compativel com os nossos planos disponíveis</p>
+
+	            <ul class="list-group">
+	              <li class="list-group-item">Para carros nacionais a cobertura é de 20 anos </li>
+	              <li class="list-group-item">Para carros importados a cobertura é de 15 anos.</li>
+	                <li class="list-group-item">Agradeçemos seu interesse em <a href="http://www.coteauto.com.br">nossa  <b>Empresa</b></a> :)</li>
+	              </ul>
+	          </div>
+	        </div>
+	      </div>
+
+
+	</div>
+<%else%>
+<%= f.hidden_field :current_step , :value => "select_seg" %>
+   <div class="row" >
+ 	
 	<div id="header" class="row">
 		<h2> Essa é a parte mais legal: <br>
 		bora deixar o seguro com a sua cara?</h2>
 
-		<%= render layout: 'form' do |f| %>
-		<%= f.hidden_field :current_step , :value => "select_seg" %>
+		
 
-		<h3>Seu carro está avaliado em R$ <span class ="destaque" > <%= number_with_precision(f.object.vei_preco, :precision => 2).gsub('.',',')  %> </span> </h3>
+		<h3>Seu carro está avaliado em R$ <span class ="destaque" > <%=  number_to_currency(f.object.vei_preco ,{unit: "", separator: ",", delimiter: "."}) %> </span> </h3>
 	</div>
 			
 	
@@ -36,10 +77,8 @@
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 100Km ( 4 x )</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 30.000,00</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
               <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Desc. 70% - Vidros, Faróis, Lanternas e Retrovisor</li>
-              <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Carro Reserva</li>
+              <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Carro Reserva 7 dias</li>
 
             <li class="list-group-item"> 
             <details>
@@ -51,6 +90,8 @@
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+              			<li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
+              			<li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
@@ -89,15 +130,15 @@
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 100Km ( 4 x )</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 30.000,00</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Desc. 70% - Vidros, Faróis, Lanternas e Retrovisor</li>
-              <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Carro Reserva</li>
+              <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Carro Reserva 7 dias</li>
               <li class="list-group-item"> 
             	<details>
 	  				<summary>Mais Cobertura Exclusiva para esse plano</summary>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Fenômenos da Natureza</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Residencial - Chaveiro/Eletrecista/Encanador</li>
+		              	<li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
+             			<li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Assistência Pet</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Chaveiro</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
@@ -134,10 +175,8 @@
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão – Qualquer Batida</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assistência 24h 100Km ( 4 x )</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 30.000,00</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Desc. 70% - Vidros, Faróis, Lanternas e Retrovisor</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Carro Reserva</li>
+              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Carro Reserva 7 dias</li>
 	          <li class="list-group-item"> 
 	           <details>
 	  				<summary>Mais Cobertura Exclusiva para esse plano</summary>
@@ -194,6 +233,8 @@
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+						<li class="list-group-item"><i class="fa fa-check  text-success"></i> Assitência Jurídica</li>
+              			<li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
@@ -232,7 +273,6 @@
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 20.000,00</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Só Perda Total</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
             <li class="list-group-item"> 
             <details>
 	  				<summary>Mais Cobertura Exclusiva para esse plano</summary>
@@ -243,6 +283,8 @@
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+		              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
+
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
@@ -274,7 +316,6 @@
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 20.000,00</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Só Perda Total</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
             <li class="list-group-item"> 
             <details>
 	  				<summary>Mais Cobertura Exclusiva para esse plano</summary>
@@ -285,6 +326,8 @@
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+		              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
+
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
@@ -318,7 +361,6 @@
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 20.000,00</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Só Perda Total</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Rastreador</li>
               <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Cobertura de Terceiros 50.000,00</li>
               <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Desc. 70% - Vidros, Faróis, Lanternas e Retrovisor</li>
@@ -333,6 +375,8 @@
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+ 			              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
+
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
@@ -371,7 +415,6 @@
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 20.000,00</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Só Perda Total</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Qualquer Batida</li>
-              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Rastreador</li>
               <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura de Terceiros 50.000,00</li>
               <li class="list-group-item"><i class="fa fa-times  text-danger"></i> Desc. 70% - Vidros, Faróis, Lanternas e Retrovisor</li>
@@ -385,6 +428,8 @@
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+		              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
+
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
@@ -416,7 +461,6 @@
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura a Terceiros R$ 20.000,00</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Só Perda Total</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Colisão - Qualquer Batida</li>
-	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Rastreador</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Cobertura de Terceiros 50.000,00</li>
 	              <li class="list-group-item"><i class="fa fa-check  text-success"></i> Desc. 70% - Vidros, Faróis, Lanternas e Retrovisor</li>
@@ -430,6 +474,8 @@
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Pane Seca</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Troca de Pneus</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Retorno ao Domicílio continuação de Viagem</li>
+						<li class="list-group-item"><i class="fa fa-check  text-success"></i> Seguro de Vida</li>
+
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Hospedagem</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Transporte para recuperação veículo</li>
 						<li class="list-group-item"><i class="fa facheck text-success"></i>Envio de motorista / condutor</li>
@@ -485,7 +531,6 @@
 
 			</div>
 		<%end%>
-
 					<%= f.hidden_field :seguro_preco_default %>
 					<%= f.hidden_field :seguro_preco_silver %>
 					<%= f.hidden_field :seguro_preco_pro %>
@@ -500,4 +545,5 @@
 
 
 
-<% end %>
+	<% end %>
+<%end%>	

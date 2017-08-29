@@ -17,8 +17,8 @@
     </div>
     <div class="col-sm-8 " >
       <h3> VOCÊ SELECIONOU O PLANO: <%= f.object.seguro_plan %> </h3>
-          <h4> O valor do seu seguro: </h4>
-     <h2> R$ <span id="seguro_final"> <%= number_with_precision(f.object.seguro_preco_final, :precision => 2).gsub('.',',')  %> </span>/ mês</h2>
+          <h4> O valor do seu seguro proteção: </h4>
+     <h2> R$ <span id="seguro_final"> <%= number_to_currency(f.object.seguro_preco_final ,{unit: "", separator: ",", delimiter: "."})  %> </span> aprox./mês</h2>
 
      <br>
      Dia para pagamento: <br>
@@ -89,7 +89,7 @@
 
     </li>
     <li >A CoteAuto é uma plataforma de comparação e venda de proteção veícular online. Trabalhamos com as melhores empresas do mercado  </li>
-    <li ><i class="fa fa-whatsapp fa-5" aria-hidden="true" style="font-size:20px"></i>21 96486-0188  </li>
+    <li ><i class="fa fa-whatsapp fa-5" aria-hidden="true" style="font-size:20px"></i>(21) 97203-0619</li>
 
     </ul>
   </div>
