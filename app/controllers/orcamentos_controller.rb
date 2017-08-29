@@ -50,12 +50,9 @@ class OrcamentosController < ApplicationController
   def update
     respond_to do |format|
       if @orcamento.update(orcamento_params)
-         if(self.vei_tipo == 'Carros' && self.vei_nacionalidade == 'Nacional' && self.vei_modelo_ano.scan(/\d*/) <= 1997 )
-          format.html { redirect_to root_path , notice: 'Deu erro.'
           format.html { redirect_to(old_car?  steps_path(@orcamento, :_id => @orcamento._id) , notice: 'oBRIGADO.' }
           format.json { render :show, status: :ok, location: @orcamento }
-        end
-      else
+        else
         format.html { render :edit }
         format.json { render json: @orcamento.errors, status: :unprocessable_entity }
       end
