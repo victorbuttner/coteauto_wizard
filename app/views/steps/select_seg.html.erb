@@ -12,7 +12,7 @@
     </div>
   <% end %>		
 
-<% if(f.object.vei_tipo == 'Carros' && f.object.vei_nacionalidade == 'Nacional' && f.object.vei_modelo_ano.to_i <= 1997 ) %>
+<% if((f.object.vei_tipo == 'Carros' && f.object.vei_nacionalidade == 'Nacional' && f.object.vei_modelo_ano.to_i <= 1997 ) || (f.object.vei_tipo == 'Carros' && f.object.vei_nacionalidade == 'Importado' && f.object.vei_modelo_ano.to_i <= 2002 ) ) %>
 	
 	<div class="row">
 	  <div class="col-md-2"></div>

@@ -145,14 +145,8 @@ $('#nacionalidade').on('click',(function()  {
 if ($('#orcamento_vei_tipo').val() != 'Nautica' && $('#orcamento_current_step').val() == 'veicle_data'){
   console.log('if')
   fipe();
-  $("form").submit(function(evt){
-    if($('#orcamento_vei_tipo').val() == 'Carros' && parseInt($('#orcamento_vei_modelo_ano').val().replace( /[^\d.]/g, '' )) <= 1997 ){
-      alert("Seu veículo não está coberto por nossa equipe! ")
-      evt.preventDefault();
-      window.history.back();
+ 
 
-    }
-});
 } if ($('#orcamento_vei_tipo').val() == 'Nautica' && $('#orcamento_current_step').val() == 'veicle_data') {
   console.log('else')
   nautica();
