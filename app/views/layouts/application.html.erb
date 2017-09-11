@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script> <%= yield :head %> </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Cotação de Seguro - CoteAuto" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Myapp" %>">
@@ -8,6 +9,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <%= csrf_meta_tags %>
+  
+
   </head>
   <body data-no-turbolink="true" >
     <header>
