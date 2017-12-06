@@ -1,25 +1,6 @@
-# README
+# Site institucional 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Site desenvolvido com RoR com o objetivo principal de efetuar orçamento para cotação de seguros. Foi utilizada a GEM wicked para "quebrar" o formulário em diversas steps indepententes.
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # coteauto_wizard
